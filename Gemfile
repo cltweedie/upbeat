@@ -13,6 +13,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 
 group :test do
+  gem 'faker'
   gem 'cucumber-rails', :require => false
   gem 'database_cleaner'
 end
