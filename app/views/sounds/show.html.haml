@@ -2,3 +2,4 @@
   %h1 Show Sound
   %h2
     = @sound.title
+  = image_tag("/uploads/sound/#{@sound.id}/#{@sound.file.path.split('/')[-1]}.png", width: "80%")

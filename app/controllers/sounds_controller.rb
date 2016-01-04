@@ -8,7 +8,8 @@ class SoundsController < ApplicationController
     @sound = Sound.new(sound_params)
     @sound.producer = current_producer
     @sound.save
-    redirect_to root_path
+    Waveform.generate(@sound.file.path, "#{@sound.file.path}.png")
+    redirect_to sound_path(@sound)
   end
 
   def show
