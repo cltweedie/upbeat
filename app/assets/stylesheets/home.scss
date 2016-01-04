@@ -1,3 +1,37 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#home {
+  min-height: 900px;
+  background-image: image-url("sounddesk.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  a {
+    color: white;
+  }
+}
+
+.jumbotron {
+  background-color: transparent;
+}
+
+#home--maintext {
+  text-align: center;
+  h2 {
+    font-size: 2.75em;
+    line-height: 1.5em;
+    margin-bottom: 50px;
+  }
+}
+
+#home--buttons {
+  text-align: center;
+  .btn {
+    margin: 20px;
+  }
+  .btn-primary {
+    background-color: $light-blue;
+  }
+}
