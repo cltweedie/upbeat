@@ -5,7 +5,10 @@
         %a Up<span class="text--blue">beat</span>
       %ul.nav.navbar-nav.navbar-right
         %li
-          %a#signin-button{ href: new_producer_session_path } Log in
+          - if current_producer
+            = link_to "Log out", destroy_producer_session_path, method: "delete"
+          - else
+            %a#signin-button{ href: new_producer_session_path(method: "DELETE") } Log in
         %li <a>Sign Up</a>
         %li <a>Browse sounds</a>
     .jumbotron#home--maintext
