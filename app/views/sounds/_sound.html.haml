@@ -1,0 +1,5 @@
+%h2
+  = @sound.title
+%p.text--blue.text--bold.text--med
+  by #{@sound.producer.email}
+= image_tag("/uploads/sound/#{@sound.id}/#{@sound.file.path.split('/')[-1]}.png", width: "80%")
