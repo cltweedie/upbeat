@@ -18,4 +18,20 @@ RSpec.describe Sound, type: :model do
       expect(@sound.producer.email).to eq @producer.email
     end
   end
+
+  describe "validations" do
+    context "without a title" do
+      before do
+        @sound = Sound.create()
+      end
+
+      it "does not save" do
+        expect(@sound).to_not be_valid
+      end
+    end
+
+    # context "without a file" do
+
+    # end
+  end
 end
