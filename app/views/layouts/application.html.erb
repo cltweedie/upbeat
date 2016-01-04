@@ -8,22 +8,46 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="navbar">
+    <div class="container">
+      <a class="navbar-brand">
+        Up<span class="text--blue">beat</span>
+      </a>
+      <ul class="nav navbar-nav navbar-right">
+        <% if current_producer %>
+          <li>
+            <%= link_to "Log out", destroy_producer_session_path, method: "delete" %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to "Log in", new_producer_session_path %>
+          </li>
+          <li>
+            <%= link_to "Sign up", new_producer_registration_path %>
+          </li>
+        <% end %>
+        <li><a>Browse sounds</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container">
   <% if notice %>
-    <p class="alert alert-success notice alert-dismissible" role="alert">
-      <%= notice %>
+    <p class="alert alert-success notice alert-dismissible fade in" role="alert">
+      <strong><%= notice %></strong>
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
     </p>
   <% end %>
   <% if alert %>
-    <p class="alert alert-warning alert-dismissible" role="alert">
-      <%= alert %>
+    <p class="alert alert-warning alert-dismissible fade in" role="alert">
+      <strong><%= alert %></strong>
     </p>
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
   <% end %>
+  </div>
 
 <%= yield %>
 

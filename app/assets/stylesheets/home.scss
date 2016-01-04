@@ -3,7 +3,29 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .alert {
+  position: static;
+  background-color: $light-blue;
+  color: white;
+  border: none;
+  width: 100%;
   margin-bottom: 0;
+}
+
+.navbar {
+  position: static;
+  background-color: transparent;
+  margin-bottom: 0;
+  a {
+    color: white;
+  }
+  .navbar-brand {
+    font-size: 1.5em;
+  }
+}
+
+body {
+  background-color: black;
+  color: white;
 }
 
 #home {

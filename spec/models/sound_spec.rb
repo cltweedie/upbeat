@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Sound, type: :model do
   describe "relations" do
     before do
-      @sound = Sound.create!(title: "Sound1", file: File.open('spec/support/test.wav'))
+      @sound = Sound.create!(title: "Sound1")
       @producer = Producer.create!(email: Faker::Internet.email,
                                     password: "password",
                                     password_confirmation: "password")
@@ -22,7 +22,7 @@ RSpec.describe Sound, type: :model do
   describe "validations" do
     context "without a title" do
       before do
-        @sound = Sound.create(file: File.open('spec/support/test.wav'))
+        @sound = Sound.create
       end
 
       it "does not save" do
@@ -30,14 +30,14 @@ RSpec.describe Sound, type: :model do
       end
     end
 
-    context "without a file" do
-      before do
-        @sound = Sound.create(title: "title")
-      end
+    # context "without a file" do
+    #   before do
+    #     @sound = Sound.create(title: "title")
+    #   end
 
-      it "does not save" do
-        expect(@sound).to_not be_valid
-      end
-    end
+    #   it "does not save" do
+    #     expect(@sound).to_not be_valid
+    #   end
+    # end
   end
 end
