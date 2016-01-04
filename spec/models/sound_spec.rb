@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Sound, type: :model do
   describe "relations" do
     before do
-      @sound = Sound.create!(title: "Sound1", file: "thisisafile")
+      @sound = Sound.create!(title: "Sound1", file: File.open('spec/support/test.wav'))
       @producer = Producer.create!(email: Faker::Internet.email,
                                     password: "password",
                                     password_confirmation: "password")
