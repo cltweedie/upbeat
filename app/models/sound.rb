@@ -4,6 +4,7 @@ class Sound < ActiveRecord::Base
   belongs_to :producer
 
   validates :title, presence: true
+  validates :file, presence: true
 
   after_save :create_waveform_image
 
