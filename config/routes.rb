@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :producers
   root 'home#index'
 
   # Example of regular route:

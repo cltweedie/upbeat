@@ -3,7 +3,7 @@ Given(/^I'm on the homepage$/) do
 end
 
 When(/^I choose to sign up$/) do
-  click_on "Sign Up"
+  page.find("#signup-button").click
 end
 
 Then(/^I will be taken to the sign\-up page$/) do
