@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160104110458) do
+ActiveRecord::Schema.define(version: 20160104122909) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,10 +35,11 @@ ActiveRecord::Schema.define(version: 20160104110458) do
   add_index "producers", ["reset_password_token"], name: "index_producers_on_reset_password_token", unique: true, using: :btree
 
   create_table "sounds", force: :cascade do |t|
-    t.integer  "user_id"
+    t.integer  "producer_id"
     t.string   "file"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "title"
   end
 
 end
