@@ -11,6 +11,10 @@ class SoundsController < ApplicationController
     redirect_to root_path
   end
 
+  def show
+    @sound = Sound.find(params[:id])
+  end
+
   private
   def sound_params
     params.require(:sound).permit(:title, :file)
