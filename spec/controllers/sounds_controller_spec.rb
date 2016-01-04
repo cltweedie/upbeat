@@ -18,7 +18,7 @@ RSpec.describe SoundsController, type: :controller do
       expect(assigns(:sound).title).to eq("Sound")
     end
 
-    it "renders the index template" do
+    it "renders the show template" do
       expect(response).to render_template(:show)
     end
   end
