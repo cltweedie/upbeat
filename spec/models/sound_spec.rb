@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Sound, type: :model do
-  describe "Relations" do
+  describe "relations" do
     before do
-      @sound = Sound.create!(title: "Sound1")
+      @sound = Sound.create!(title: "Sound1", file: "thisisafile")
       @producer = Producer.create!(email: Faker::Internet.email,
                                     password: "password",
                                     password_confirmation: "password")
@@ -22,16 +22,12 @@ RSpec.describe Sound, type: :model do
   describe "validations" do
     context "without a title" do
       before do
-        @sound = Sound.create()
+        @sound = Sound.create(file: "thisisafile")
       end
 
       it "does not save" do
         expect(@sound).to_not be_valid
       end
     end
-
-    # context "without a file" do
-
-    # end
   end
 end
