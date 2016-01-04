@@ -10,7 +10,7 @@
 <body>
   <div class="navbar">
     <div class="container">
-      <a class="navbar-brand">
+      <a class="navbar-brand" href="<%= root_path %>">
         Up<span class="text--blue">beat</span>
       </a>
       <ul class="nav navbar-nav navbar-right">
@@ -26,7 +26,7 @@
             <%= link_to "Sign up", new_producer_registration_path %>
           </li>
         <% end %>
-        <li><a>Browse sounds</a></li>
+        <li><a><span class="text--blue">all</span> sounds</a></li>
       </ul>
     </div>
   </div>
