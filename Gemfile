@@ -12,6 +12,11 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 
+group :test do
+  gem 'cucumber-rails', :require => false
+  gem 'database_cleaner'
+end
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'rspec-rails', '~> 3.0'
