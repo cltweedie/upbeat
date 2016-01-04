@@ -24,8 +24,8 @@ Then(/^a producer will be created$/) do
   expect(Producer.count).to eq 1
 end
 
-Then(/^I will be taken to the sounds index page$/) do
-  expect(current_path).to eq sounds_path
+Then(/^I will be taken to the homepage$/) do
+  expect(current_path).to eq root_path
 end
 
 Then(/^I will receive a welcome email$/) do

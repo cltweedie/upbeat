@@ -7,5 +7,5 @@ Feature: Signing up
     When I fill in the form with valid sign-up information
       And I sign up
     Then a producer will be created
-    And I will be taken to the sounds index page
+    And I will be taken to the homepage
     And I will receive a welcome email
