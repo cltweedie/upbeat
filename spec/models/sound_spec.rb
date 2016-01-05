@@ -12,6 +12,10 @@ RSpec.describe Sound, type: :model do
                                     password_confirmation: "password")
 
       @producer.sounds << @sound
+
+      @instrument = Instrument.create!(name: "Drums")
+      @sound.instrument = @instrument
+      @sound.save!
     end
 
     after do
@@ -25,6 +29,11 @@ RSpec.describe Sound, type: :model do
       expect(@producer.sounds.first.title).to eq "Sound1"
 
       expect(@sound.producer.email).to eq @producer.email
+    end
+
+    it "belongs to an instrument" do
+      expect(@sound.instrument.name).to eq "Drums"
+      expect(@instrument.sounds.length).to eq 1
     end
   end
 
