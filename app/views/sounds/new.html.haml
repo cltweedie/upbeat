@@ -13,11 +13,15 @@
 
       .form-group
         = f.label :instrument
-        = f.select :instrument_id, options_for_select(@instrument_options), class: "form-control"
+        = f.select :instrument_id, options_for_select(@instrument_options), {}, class: "form-control"
 
       .form-group
         = f.label :category
-        = f.select :category_id, options_for_select(@category_options), class: "form-control"
+        = f.select :category_id, options_for_select(@category_options), {}, class: "form-control"
+
+      .form-group
+        = label_tag :tags
+        = text_field_tag :tags, nil, class: "form-control", placeholder: "Enter any number of tags, separated by commas..."
 
       .form-group
         = f.submit "Upload Sound", class: "btn btn-primary"

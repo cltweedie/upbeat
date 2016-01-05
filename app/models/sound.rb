@@ -12,9 +12,14 @@ class Sound < ActiveRecord::Base
 
   after_save :create_waveform_image
 
+  def create_tags(tags)
+    tags.split(",").each do |tag|
+      self.tags << Tag.find_or_create_by(name: tag.strip)
+    end
+  end
+
   private
   def create_waveform_image
     Waveform.generate(self.file.path, "#{self.file.path}.png", force: true)
   end
-
 end

@@ -9,6 +9,13 @@
 .playbutton{ id: "play_button_#{sound.id}" }
 = image_tag("/uploads/sound/#{sound.id}/#{sound.file.path.split('/')[-1]}.png", width: "80%")
 
+%p
+  tags: <span class="text--blue">
+  - sound.tags.each do |tag|
+    <a>
+    = tag.name
+    </a>
+  </span>
 
 :javascript
       soundManager.onready(function() {
