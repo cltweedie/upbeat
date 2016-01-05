@@ -12,7 +12,6 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'carrierwave'
-gem 'waveform'
 gem 'soundmanager-rails'
 gem 'ruby-audio-heroku'
 

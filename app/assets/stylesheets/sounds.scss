@@ -5,11 +5,19 @@
 .playbutton {
   cursor: pointer;
   display: inline-block;
-  background-image: image_url("play.svg");
+  background-image: image-url('play.svg');
   height: 100px;
   width: 100px;
   background-size: 200px 100px;
   background-position: 0 0;
   float: left;
   margin: 20px 10px;
+}
+
+#banner {
+  background-image: image-url('banner1.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 0 -20px;
+  height: 230px;
 }
