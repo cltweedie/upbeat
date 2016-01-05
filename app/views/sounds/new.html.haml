@@ -16,4 +16,8 @@
         = f.select :instrument_id, options_for_select(@instrument_options), class: "form-control"
 
       .form-group
+        = f.label :category
+        = f.select :category_id, options_for_select(@category_options), class: "form-control"
+
+      .form-group
         = f.submit "Upload Sound", class: "btn btn-primary"

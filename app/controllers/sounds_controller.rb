@@ -4,6 +4,7 @@ class SoundsController < ApplicationController
     if current_producer
       @sound = Sound.new
       @instrument_options = Instrument.select_options
+      @category_options = Category.select_options
     else
       flash[:alert] = "You must be logged in to do that!"
       redirect_to root_path
