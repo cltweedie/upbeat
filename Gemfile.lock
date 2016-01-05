@@ -195,6 +195,7 @@ GEM
       rspec-support (~> 3.4.0)
     rspec-support (3.4.1)
     ruby-audio (1.6.1)
+    ruby-audio-heroku (1.6.2)
     ruby_parser (3.7.2)
       sexp_processor (~> 4.1)
     sass (3.4.20)
@@ -259,6 +260,7 @@ DEPENDENCIES
   pry-byebug
   rails (= 4.2.5)
   rspec-rails (~> 3.0)
+  ruby-audio-heroku
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   soundmanager-rails
