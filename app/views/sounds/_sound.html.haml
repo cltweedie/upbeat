@@ -1,23 +1,23 @@
 %h2
-  = @sound.title
+  = sound.title
 %p.text--blue.text--bold.text--med
-  by #{@sound.producer.email}
+  by #{sound.producer.email}
 
-.playbutton{ id: "play_button_#{@sound.id}" }
-= image_tag("/uploads/sound/#{@sound.id}/#{@sound.file.path.split('/')[-1]}.png", width: "80%")
+.playbutton{ id: "play_button_#{sound.id}" }
+= image_tag("/uploads/sound/#{sound.id}/#{sound.file.path.split('/')[-1]}.png", width: "80%")
 
 :javascript
       soundManager.onready(function() {
-        $('#play_button_#{@sound.id}').click(function() {
+        $('#play_button_#{sound.id}').click(function() {
           soundManager.createSound({
-              id: 'sound_#{ @sound.id }',
-              url: '#{ @sound.file }',
+              id: 'sound_#{ sound.id }',
+              url: '#{ sound.file }',
               onfinish: function() {
-                $('#play_button_#{@sound.id}').css('background-position', '0 0');
+                $('#play_button_#{sound.id}').css('background-position', '0 0');
               }
           });
-          soundManager.play('sound_#{ @sound.id }');
-          $('#play_button_#{@sound.id}').css('background-position', '100px 0');
+          soundManager.play('sound_#{ sound.id }');
+          $('#play_button_#{sound.id}').css('background-position', '100px 0');
         });
 
     });
