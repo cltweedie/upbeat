@@ -14,6 +14,7 @@ class SoundsController < ApplicationController
   def create
     @sound = Sound.new(sound_params)
     @sound.producer = current_producer
+    @sound.create_tags(params[:tags])
     @sound.save
     redirect_to sound_path(@sound)
   end
@@ -30,5 +31,4 @@ class SoundsController < ApplicationController
   def sound_params
     params.require(:sound).permit(:title, :file, :instrument_id, :category_id)
   end
-
 end

@@ -13,6 +13,10 @@ RSpec.describe Sound, type: :model do
       @sound.instrument = @instrument
       @category = Category.create!(name: "Hits")
       @sound.category = @category
+
+      @sound.tags << Tag.create!(name: "tag1")
+      @sound.tags << Tag.create!(name: "tag2")
+      @sound.tags << Tag.create!(name: "tag3")
       @sound.save!
     end
 
@@ -37,6 +41,11 @@ RSpec.describe Sound, type: :model do
     it "belongs to a category" do
       expect(@sound.category.name).to eq "Hits"
       expect(@category.sounds.length).to eq 1
+    end
+
+    it "has many tags" do
+      expect(@sound.tags.length).to eq 3
+      expect(@sound.tags.first.name).to eq "tag1"
     end
   end
 
