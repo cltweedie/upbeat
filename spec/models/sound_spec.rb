@@ -3,12 +3,21 @@ require 'rails_helper'
 RSpec.describe Sound, type: :model do
   describe "relations" do
     before do
-      @sound = Sound.create!(title: "Sound1")
+      @sound = Sound.new(title: "Sound1")
+      @sound.file = File.open("spec/support/test.wav")
+      @sound.save!
+
       @producer = Producer.create!(email: Faker::Internet.email,
                                     password: "password",
                                     password_confirmation: "password")
 
       @producer.sounds << @sound
+    end
+
+    after do
+      path = @sound.file.path.split("/")
+      path.pop
+      FileUtils.rm_rf(path.join("/"))
     end
 
     it "belongs to a producer" do
@@ -30,14 +39,14 @@ RSpec.describe Sound, type: :model do
       end
     end
 
-    # context "without a file" do
-    #   before do
-    #     @sound = Sound.create(title: "title")
-    #   end
+    context "without a file" do
+      before do
+        @sound = Sound.create(title: "title")
+      end
 
-    #   it "does not save" do
-    #     expect(@sound).to_not be_valid
-    #   end
-    # end
+      it "does not save" do
+        expect(@sound).to_not be_valid
+      end
+    end
   end
 end
