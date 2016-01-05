@@ -5,16 +5,13 @@ RSpec.describe Sound, type: :model do
     before do
       @sound = Sound.new(title: "Sound1")
       @sound.file = File.open("spec/support/test.wav")
-      @sound.save!
-
       @producer = Producer.create!(email: Faker::Internet.email,
                                     password: "password",
                                     password_confirmation: "password")
-
       @producer.sounds << @sound
-
       @instrument = Instrument.create!(name: "Drums")
       @sound.instrument = @instrument
+      @category = Category.create!(name: "Hits")
       @sound.save!
     end
 
@@ -34,6 +31,11 @@ RSpec.describe Sound, type: :model do
     it "belongs to an instrument" do
       expect(@sound.instrument.name).to eq "Drums"
       expect(@instrument.sounds.length).to eq 1
+    end
+
+    it "belongs to a category" do
+      expect(@sound.category.name).to eq "Hits"
+      expect(@category.sounds.length).to eq 1
     end
   end
 
