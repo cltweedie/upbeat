@@ -14,6 +14,7 @@ gem 'devise'
 gem 'carrierwave'
 gem 'waveform'
 gem 'soundmanager-rails'
+gem 'ruby-audio-heroku'
 
 group :test do
   gem 'faker'
