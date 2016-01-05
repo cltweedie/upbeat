@@ -4,6 +4,7 @@
 %p.text--blue.text--bold.text--med
   by #{sound.producer.email}
 %p instrument: <span class="text--blue">#{ sound.instrument.name }</span>
+%p category: <span class="text--blue">#{ sound.category.name }</span>
 
 .playbutton{ id: "play_button_#{sound.id}" }
 = image_tag("/uploads/sound/#{sound.id}/#{sound.file.path.split('/')[-1]}.png", width: "80%")
