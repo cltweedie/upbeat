@@ -5,3 +5,16 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Instrument.create!(name: "Vocals")
+Instrument.create!(name: "Drums / Percussion")
+Instrument.create!(name: "Guitar")
+Instrument.create!(name: "Bass guitar")
+Instrument.create!(name: "Synth bass")
+Instrument.create!(name: "Synth lead")
+Instrument.create!(name: "Pads")
+Instrument.create!(name: "Piano")
+Instrument.create!(name: "Strings")
+Instrument.create!(name: "Orchestral")
+Instrument.create!(name: "FX")
+Instrument.create!(name: "Other")
