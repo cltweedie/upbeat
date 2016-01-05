@@ -1,15 +1,15 @@
 .container
-  %h1 Upload a sound
+  - if current_producer
+    %h1 Upload a sound
 
-  = form_for @sound do |f|
-    .form-group
-      = f.label :title
-      = f.text_field :title, class: "form-control"
+    = form_for @sound do |f|
+      .form-group
+        = f.label :title
+        = f.text_field :title, class: "form-control"
 
-    .form-group
-      = f.label :file
-      = f.file_field :file
+      .form-group
+        = f.label :file
+        = f.file_field :file
 
-    .form-group
-      = f.submit "Upload Sound", class: "btn btn-primary"
-
+      .form-group
+        = f.submit "Upload Sound", class: "btn btn-primary"

@@ -1,5 +1,6 @@
-%h2
-  = sound.title
+%a{ href: "#{ sound_path(sound) }" }
+  %h2
+    = sound.title
 %p.text--blue.text--bold.text--med
   by #{sound.producer.email}
 

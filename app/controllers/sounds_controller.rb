@@ -1,7 +1,12 @@
 class SoundsController < ApplicationController
 
   def new
-    @sound = Sound.new
+    if current_producer
+      @sound = Sound.new
+    else
+      flash[:alert] = "You must be logged in to do that!"
+      redirect_to root_path
+    end
   end
 
   def create
