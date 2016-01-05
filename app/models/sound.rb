@@ -1,7 +1,9 @@
 class Sound < ActiveRecord::Base
   mount_uploader :file, SoundUploader
 
-  belongs_to :producer, :instrument, :category
+  belongs_to :producer
+  belongs_to :instrument
+  belongs_to :category
 
   validates :title, presence: true
   validates :file, presence: true

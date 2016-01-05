@@ -12,6 +12,7 @@ RSpec.describe Sound, type: :model do
       @instrument = Instrument.create!(name: "Drums")
       @sound.instrument = @instrument
       @category = Category.create!(name: "Hits")
+      @sound.category = @category
       @sound.save!
     end
 
