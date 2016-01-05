@@ -4,4 +4,12 @@
 
 .playbutton {
   cursor: pointer;
+  display: inline-block;
+  background-image: image_url("play.svg");
+  height: 100px;
+  width: 100px;
+  background-size: 200px 100px;
+  background-position: 0 0;
+  float: left;
+  margin: 20px 10px;
 }

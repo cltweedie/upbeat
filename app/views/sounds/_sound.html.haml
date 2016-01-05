@@ -3,7 +3,7 @@
 %p.text--blue.text--bold.text--med
   by #{@sound.producer.email}
 
-= image_tag("play.svg", height: "100px", id: "play_button_#{@sound.id}", class: "playbutton")
+.playbutton{ id: "play_button_#{@sound.id}" }
 = image_tag("/uploads/sound/#{@sound.id}/#{@sound.file.path.split('/')[-1]}.png", width: "80%")
 
 :javascript
@@ -11,9 +11,13 @@
         $('#play_button_#{@sound.id}').click(function() {
           soundManager.createSound({
               id: 'sound_#{ @sound.id }',
-              url: '#{ @sound.file }'
+              url: '#{ @sound.file }',
+              onfinish: function() {
+                $('#play_button_#{@sound.id}').css('background-position', '0 0');
+              }
           });
           soundManager.play('sound_#{ @sound.id }');
+          $('#play_button_#{@sound.id}').css('background-position', '100px 0');
         });
 
     });

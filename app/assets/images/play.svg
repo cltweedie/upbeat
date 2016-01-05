@@ -9,9 +9,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="500"
+   width="1000"
    height="500"
-   viewBox="0 0 500.00001 499.99995"
+   viewBox="0 0 1000 499.99995"
    id="svg2"
    version="1.1"
    inkscape:version="0.91 r13725"
@@ -26,7 +26,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.7"
-     inkscape:cx="45"
+     inkscape:cx="470.99147"
      inkscape:cy="177.14286"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -55,7 +55,7 @@
      id="layer1"
      transform="translate(0,-552.37289)">
     <circle
-       style="fill:#00baff;fill-rule:evenodd;stroke:none;stroke-width:1.20090055px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1"
+       style="fill:#00baff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.20090055px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        id="path3338"
        cx="250"
        cy="802.37286"
@@ -78,5 +78,25 @@
        inkscape:transform-center-x="-36.655942"
        inkscape:transform-center-y="0.15078204"
        transform="matrix(0.99998802,0.00489491,-0.00489491,0.99998802,30.996112,7.5039734)" />
+    <circle
+       r="247.0424"
+       cy="802.37286"
+       cx="751.42859"
+       id="circle8138"
+       style="fill:#00baff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.20090055px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:none"
+       id="rect8140"
+       width="52.857143"
+       height="250"
+       x="667.14288"
+       y="669.51569" />
+    <rect
+       y="669.51569"
+       x="778.57147"
+       height="250"
+       width="52.857143"
+       id="rect8142"
+       style="fill:#ffffff;fill-opacity:1;stroke:none" />
   </g>
 </svg>
