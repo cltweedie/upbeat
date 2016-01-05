@@ -1,5 +1,6 @@
 Given(/^I have an account as a producer$/) do
   @producer = Producer.create!(email: "email@email.com", password: "password", password_confirmation: "password")
+  sign_out
 end
 
 When(/^I choose to sign in$/) do
