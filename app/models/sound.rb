@@ -4,6 +4,8 @@ class Sound < ActiveRecord::Base
   belongs_to :producer
   belongs_to :instrument
   belongs_to :category
+  has_many :taggings
+  has_many :tags, through: :taggings
 
   validates :title, presence: true
   validates :file, presence: true
