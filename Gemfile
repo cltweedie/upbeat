@@ -13,10 +13,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'carrierwave'
 gem 'waveform'
+gem 'soundmanager-rails'
 
 group :test do
   gem 'faker'
-  gem 'cucumber-rails', :require => false
+  gem 'cucumber-rails', require: false
   gem 'database_cleaner'
   gem 'launchy'
 end
