@@ -7,13 +7,17 @@ class SoundsController < ApplicationController
   def create
     @sound = Sound.new(sound_params)
     @sound.producer = current_producer
-    Waveform.generate(@sound.file.path, "#{@sound.file.path}.png", force: true)
     @sound.save
+    Waveform.generate(@sound.file.path, "#{@sound.file.path}.png", force: true)
     redirect_to sound_path(@sound)
   end
 
   def show
     @sound = Sound.find(params[:id])
+  end
+
+  def index
+    @sounds = Sound.all
   end
 
   private
