@@ -3,6 +3,7 @@ class SoundsController < ApplicationController
   def new
     if current_producer
       @sound = Sound.new
+      @instrument_options = Instrument.select_options
     else
       flash[:alert] = "You must be logged in to do that!"
       redirect_to root_path
@@ -26,7 +27,7 @@ class SoundsController < ApplicationController
 
   private
   def sound_params
-    params.require(:sound).permit(:title, :file)
+    params.require(:sound).permit(:title, :file, :instrument_id)
   end
 
 end
