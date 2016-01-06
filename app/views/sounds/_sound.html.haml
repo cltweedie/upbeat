@@ -29,6 +29,7 @@
         %span.text--blue
           - sound.tags.each do |tag|
             = link_to tag.name, sounds_path(tag: tag.name), class: "text--blue"
+            = "|" unless tag == sound.tags.last
 
 :javascript
       soundManager.onready(function() {

@@ -1,8 +1,8 @@
 .container
   #banner
-  %h1.text--center <span class="text--blue">all</span> sounds
+  %h1.text--center <a href="#{ sounds_path }"><span class="text--blue">all</span> sounds</a>
   %section.text--center
-    %span.text--blue View by
+    %span.text--blue view by
     %span#instrument-option.filter-option
       Instrument
     |
@@ -23,9 +23,12 @@
       - Tag.all.each do |tag|
         = link_to tag.name, sounds_path(tag: tag.name)
         = "|" unless tag == Tag.last
-    %h2= "Instrument: #{params[:instrument]}" if params[:instrument]
-    %h2= "Category: #{params[:category]}" if params[:category]
-    %h2= "Tag: #{params[:tag]}" if params[:tag]
+    - if params[:instrument]
+      %h2 <span class="text--blue">instrument:</span> #{params[:instrument]}
+    - if params[:category]
+      %h2 <span class="text--blue">category:</span> #{params[:category]}
+    - if params[:tag]
+      %h2 <span class="text--blue">tag:</span> #{params[:tag]}
   - @sounds.each do |sound|
     = render sound
 

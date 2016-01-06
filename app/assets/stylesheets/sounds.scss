@@ -19,14 +19,14 @@
   background-size: 100px 50px;
   background-position: 0 0;
   float: left;
-  margin: 20px 10px;
+  margin: 10px 10px;
 }
 
 #banner {
-  background-image: image-url('banner1.jpg');
+  background-image: linear-gradient(transparent 50%, #0d0d0d), image-url('banner1.jpg');
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: 0 -20px;
+  background-position: 0 0;
   height: 230px;
 }
 
