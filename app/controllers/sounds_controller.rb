@@ -24,7 +24,11 @@ class SoundsController < ApplicationController
   end
 
   def index
-    @sounds = Sound.all
+    if params[:tag]
+      @sounds = Sound.tagged_as(params[:tag])
+    else
+      @sounds = Sound.all
+    end
   end
 
   private

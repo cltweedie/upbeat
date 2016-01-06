@@ -77,7 +77,11 @@ RSpec.describe SoundsController, type: :controller do
       expect(response).to render_template :index
     end
 
-    context "with a tags query string" do
+    context "with a tag query string" do
+      before do
+        get :index, tag: "tagname"
+      end
+
       it "only loads the sounds with the appropriate tag" do
         expect(assigns(:sounds).length).to eq 2
         expect(assigns(:sounds).first.title).to eq "Sound"

@@ -18,6 +18,10 @@ class Sound < ActiveRecord::Base
     end
   end
 
+  def self.tagged_as(tag)
+    Sound.joins(:tags).where("tags.name = ?", tag)
+  end
+
   private
   def create_waveform_image
     Waveform.generate(self.file.path, "#{self.file.path}.png", force: true)
