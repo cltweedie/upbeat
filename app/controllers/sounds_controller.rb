@@ -28,6 +28,8 @@ class SoundsController < ApplicationController
       @sounds = Sound.tagged_as(params[:tag])
     elsif params[:instrument]
       @sounds = Sound.filter_by_instrument(params[:instrument])
+    elsif params[:category]
+      @sounds = Sound.filter_by_category(params[:category])
     else
       @sounds = Sound.all
     end

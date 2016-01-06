@@ -27,6 +27,11 @@ class Sound < ActiveRecord::Base
     Sound.where(instrument: instrument)
   end
 
+  def self.filter_by_category(category_name)
+    category = Category.find_by(name: category_name)
+    Sound.where(category: category)
+  end
+
   private
   def create_waveform_image
     Waveform.generate(self.file.path, "#{self.file.path}.png", force: true)

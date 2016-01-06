@@ -39,6 +39,7 @@ RSpec.describe SoundsController, type: :controller do
       @sound2 = Sound.new(title: "Sound2")
       @sound2.file = File.open("spec/support/test.wav")
       @sound2.tags << Tag.find_or_create_by(name: "tagname")
+      @sound2.category = Category.find_or_create_by(name: "categoryname")
       @sound2.save!
 
       @sound3 = Sound.new(title: "Sound3")
@@ -98,6 +99,17 @@ RSpec.describe SoundsController, type: :controller do
       it "only loads the sounds with the appropriate instrument" do
         expect(assigns(:sounds).length).to eq 1
         expect(assigns(:sounds).first.title).to eq "Sound3"
+      end
+    end
+
+    context "with an instrument query string" do
+      before do
+        get :index, category: "categoryname"
+      end
+
+      it "only loads the sounds with the appropriate instrument" do
+        expect(assigns(:sounds).length).to eq 1
+        expect(assigns(:sounds).first.title).to eq "Sound2"
       end
     end
   end
