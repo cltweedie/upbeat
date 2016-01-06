@@ -70,4 +70,17 @@ RSpec.describe Sound, type: :model do
       end
     end
   end
+
+  describe "create_tags" do
+    it "creates tags from a comma-separated string" do
+      @sound = Sound.new(title: "Sound1")
+      @sound.file = File.open("spec/support/test.wav")
+      @sound.save!
+
+      @sound.create_tags("this, is, a, list, of, tags")
+
+      expect(@sound.tags.length).to eq 6
+      expect(@sound.tags.first.name).to eq "this"
+    end
+  end
 end
