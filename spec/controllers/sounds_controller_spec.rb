@@ -17,15 +17,15 @@ RSpec.describe SoundsController, type: :controller do
     end
 
     it "returns a 200 OK status code" do
-      expect(response).to have_http_status(:ok)
+      expect(response).to have_http_status :ok
     end
 
     it "loads the sound" do
-      expect(assigns(:sound).title).to eq("Sound")
+      expect(assigns(:sound).title).to eq "Sound"
     end
 
     it "renders the show template" do
-      expect(response).to render_template(:show)
+      expect(response).to render_template :show
     end
   end
 
@@ -33,11 +33,18 @@ RSpec.describe SoundsController, type: :controller do
     before do
       @sound = Sound.new(title: "Sound")
       @sound.file = File.open("spec/support/test.wav")
+      @sound.tags << Tag.find_or_create_by(name: "tagname")
       @sound.save!
 
       @sound2 = Sound.new(title: "Sound2")
       @sound2.file = File.open("spec/support/test.wav")
+      @sound2.tags << Tag.find_or_create_by(name: "tagname")
       @sound2.save!
+
+      @sound3 = Sound.new(title: "Sound3")
+      @sound3.file = File.open("spec/support/test.wav")
+      @sound3.tags << Tag.find_or_create_by(name: "differenttagname")
+      @sound3.save!
 
       get :index
     end
@@ -50,19 +57,32 @@ RSpec.describe SoundsController, type: :controller do
       path = @sound2.file.path.split("/")
       path.pop
       FileUtils.rm_rf(path.join("/"))
+
+      path = @sound3.file.path.split("/")
+      path.pop
+      FileUtils.rm_rf(path.join("/"))
     end
 
     it "returns a 200 OK status code" do
-      expect(response).to have_http_status(:ok)
+      expect(response).to have_http_status :ok
     end
 
     it "loads the sounds" do
-      expect(assigns(:sounds).length).to eq(2)
-      expect(assigns(:sounds).first.title).to eq("Sound")
+      expect(assigns(:sounds).length).to eq 3
+      expect(assigns(:sounds).first.title).to eq "Sound"
+      expect(assigns(:sounds).last.title).to eq "Sound3"
     end
 
     it "renders the index template" do
-      expect(response).to render_template(:index)
+      expect(response).to render_template :index
+    end
+
+    context "with a tags query string" do
+      it "only loads the sounds with the appropriate tag" do
+        expect(assigns(:sounds).length).to eq 2
+        expect(assigns(:sounds).first.title).to eq "Sound"
+        expect(assigns(:sounds).last.title).to eq "Sound2"
+      end
     end
   end
 end
