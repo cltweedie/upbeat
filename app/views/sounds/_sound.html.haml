@@ -10,12 +10,10 @@
 = image_tag("/uploads/sound/#{sound.id}/#{sound.file.path.split('/')[-1]}.png", width: "80%")
 
 %p
-  tags: <span class="text--blue">
-  - sound.tags.each do |tag|
-    <a>
-    = tag.name
-    </a>
-  </span>
+  tags:
+  %span.text--blue
+    - sound.tags.each do |tag|
+      = link_to tag.name, sounds_path(tag: tag.name)
 
 :javascript
       soundManager.onready(function() {
