@@ -44,6 +44,7 @@ RSpec.describe SoundsController, type: :controller do
       @sound3 = Sound.new(title: "Sound3")
       @sound3.file = File.open("spec/support/test.wav")
       @sound3.tags << Tag.find_or_create_by(name: "differenttagname")
+      @sound3.instrument = Instrument.find_or_create_by(name: "Violin")
       @sound3.save!
 
       get :index
@@ -86,6 +87,17 @@ RSpec.describe SoundsController, type: :controller do
         expect(assigns(:sounds).length).to eq 2
         expect(assigns(:sounds).first.title).to eq "Sound"
         expect(assigns(:sounds).last.title).to eq "Sound2"
+      end
+    end
+
+    context "with an instrument query string" do
+      before do
+        get :index, instrument: "Violin"
+      end
+
+      it "only loads the sounds with the appropriate instrument" do
+        expect(assigns(:sounds).length).to eq 1
+        expect(assigns(:sounds).first.title).to eq "Sound3"
       end
     end
   end

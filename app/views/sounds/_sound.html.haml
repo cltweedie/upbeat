@@ -3,7 +3,9 @@
     = sound.title
 %p.text--blue.text--bold.text--med
   by #{sound.producer.email}
-%p instrument: <span class="text--blue">#{ sound.instrument.name }</span>
+%p
+  instrument:
+  = link_to sound.instrument.name, sounds_path(instrument: sound.instrument.name), class: "text--blue"
 %p category: <span class="text--blue">#{ sound.category.name }</span>
 
 .playbutton{ id: "play_button_#{sound.id}" }
@@ -13,7 +15,7 @@
   tags:
   %span.text--blue
     - sound.tags.each do |tag|
-      = link_to tag.name, sounds_path(tag: tag.name)
+      = link_to tag.name, sounds_path(tag: tag.name), class: "text--blue"
 
 :javascript
       soundManager.onready(function() {
