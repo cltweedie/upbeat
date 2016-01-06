@@ -25,13 +25,13 @@ class SoundsController < ApplicationController
 
   def index
     if params[:tag]
-      @sounds = Sound.tagged_as(params[:tag])
+      @sounds = Sound.tagged_as(params[:tag]).order(cached_votes_score: :desc)
     elsif params[:instrument]
-      @sounds = Sound.filter_by_instrument(params[:instrument])
+      @sounds = Sound.filter_by_instrument(params[:instrument]).order(cached_votes_score: :desc)
     elsif params[:category]
-      @sounds = Sound.filter_by_category(params[:category])
+      @sounds = Sound.filter_by_category(params[:category]).order(cached_votes_score: :desc)
     else
-      @sounds = Sound.all
+      @sounds = Sound.all.order(cached_votes_score: :desc).order(cached_votes_score: :desc)
     end
   end
 
