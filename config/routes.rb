@@ -3,7 +3,12 @@ Rails.application.routes.draw do
   devise_for :producers
   root 'home#index'
 
-  resources :sounds
+  resources :sounds do
+    member do
+      post :upvote
+      post :downvote
+    end
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

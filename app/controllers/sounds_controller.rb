@@ -35,6 +35,12 @@ class SoundsController < ApplicationController
     end
   end
 
+  def upvote
+    @sound = Sound.find(params[:id])
+    @sound.upvote_from current_producer
+    render json: @sound.votes_for.size
+  end
+
   private
   def sound_params
     params.require(:sound).permit(:title, :file, :instrument_id, :category_id)

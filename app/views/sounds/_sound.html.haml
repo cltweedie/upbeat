@@ -8,19 +8,27 @@
   .col-md-8
     .playbutton{ id: "play_button_#{sound.id}" }
     = image_tag("/uploads/sound/#{sound.id}/#{sound.file.path.split('/')[-1]}.png", width: "80%")
+    .voting
+      %span.glyphicon.glyphicon-chevron-up.upvote
+      %span{ id: "votes_for_sound_#{sound.id}" }
+        = sound.votes_for.size
+      %span.glyphicon.glyphicon-chevron-down.downvote
 
   .col-md-3
-    %p
-      instrument:
-      = link_to sound.instrument.name, sounds_path(instrument: sound.instrument.name), class: "text--blue"
-    %p
-      category:
-      = link_to sound.category.name, sounds_path(category: sound.category.name), class: "text--blue"
-    %p
-      tags:
-      %span.text--blue
-        - sound.tags.each do |tag|
-          = link_to tag.name, sounds_path(tag: tag.name), class: "text--blue"
+    - if sound.instrument
+      %p
+        instrument:
+        = link_to sound.instrument.name, sounds_path(instrument: sound.instrument.name), class: "text--blue"
+    - if sound.category
+      %p
+        category:
+        = link_to sound.category.name, sounds_path(category: sound.category.name), class: "text--blue"
+    - if sound.tags
+      %p
+        tags:
+        %span.text--blue
+          - sound.tags.each do |tag|
+            = link_to tag.name, sounds_path(tag: tag.name), class: "text--blue"
 
 :javascript
       soundManager.onready(function() {
@@ -35,5 +43,13 @@
           soundManager.play('sound_#{ sound.id }');
           $('#play_button_#{sound.id}').css('background-position', '50px 0');
         });
+    });
 
+    $(function() {
+      $('.upvote').click(function() {
+        $.post("#{ upvote_sound_path(sound) }", function(data) {
+          console.log("Upvote successful");
+          $("#votes_for_sound_#{sound.id}").text(data)
+        });
+      });
     });

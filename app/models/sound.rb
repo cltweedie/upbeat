@@ -1,6 +1,8 @@
 class Sound < ActiveRecord::Base
   mount_uploader :file, SoundUploader
 
+  acts_as_votable
+
   belongs_to :producer
   belongs_to :instrument
   belongs_to :category

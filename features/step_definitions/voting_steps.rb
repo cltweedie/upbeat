@@ -21,6 +21,7 @@ When(/^I upvote a sound$/) do
 end
 
 Then(/^The sound will have a vote$/) do
+  sleep 0.1
   expect(@sound.reload.votes_for.size).to eq 1
 end
 

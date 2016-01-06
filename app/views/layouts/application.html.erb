@@ -16,11 +16,11 @@
       <ul class="nav navbar-nav navbar-right">
         <% if current_producer %>
           <li>
-            <%= link_to "Log out", destroy_producer_session_path, method: "delete" %>
+            <%= link_to "Sign out", destroy_producer_session_path, method: "delete" %>
           </li>
         <% else %>
           <li>
-            <%= link_to "Log in", new_producer_session_path %>
+            <%= link_to "Sign in", new_producer_session_path %>
           </li>
           <li>
             <%= link_to "Sign up", new_producer_registration_path %>
