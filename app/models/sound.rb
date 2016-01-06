@@ -22,6 +22,11 @@ class Sound < ActiveRecord::Base
     Sound.joins(:tags).where("tags.name = ?", tag)
   end
 
+  def self.filter_by_instrument(instrument_name)
+    instrument = Instrument.find_by(name: instrument_name)
+    Sound.where(instrument: instrument)
+  end
+
   private
   def create_waveform_image
     Waveform.generate(self.file.path, "#{self.file.path}.png", force: true)

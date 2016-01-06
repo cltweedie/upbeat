@@ -26,6 +26,8 @@ class SoundsController < ApplicationController
   def index
     if params[:tag]
       @sounds = Sound.tagged_as(params[:tag])
+    elsif params[:instrument]
+      @sounds = Sound.filter_by_instrument(params[:instrument])
     else
       @sounds = Sound.all
     end
