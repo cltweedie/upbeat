@@ -8,4 +8,4 @@ Feature: Signing in
     When I fill in the form with valid sign-in information
       And I sign in
     Then I will see a flash notice "Signed in successfully"
-      And I will be taken to the homepage
+      And I will be taken to the sounds index page

@@ -2,13 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.sound-partial {
+  h2 {
+    font-size: 1.5em;
+  }
+  clear: both;
+  margin-top: 20px;
+}
+
 .playbutton {
   cursor: pointer;
   display: inline-block;
   background-image: image-url('play.svg');
-  height: 100px;
-  width: 100px;
-  background-size: 200px 100px;
+  height: 50px;
+  width: 50px;
+  background-size: 100px 50px;
   background-position: 0 0;
   float: left;
   margin: 20px 10px;

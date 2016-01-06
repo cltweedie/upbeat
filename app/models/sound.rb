@@ -34,6 +34,6 @@ class Sound < ActiveRecord::Base
 
   private
   def create_waveform_image
-    Waveform.generate(self.file.path, "#{self.file.path}.png", force: true)
+    Waveform.generate(self.file.path, "#{self.file.path}.png", force: true, background_color: "#000")
   end
 end

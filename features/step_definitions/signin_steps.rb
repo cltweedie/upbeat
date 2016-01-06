@@ -1,6 +1,5 @@
 Given(/^I have an account as a producer$/) do
   @producer = Producer.create!(email: "email@email.com", password: "password", password_confirmation: "password")
-  sign_out
 end
 
 When(/^I choose to sign in$/) do
@@ -23,3 +22,8 @@ end
 Then(/^I will see a flash notice "(.*?)"$/) do |message|
   expect(page).to have_content message
 end
+
+Then(/^I will be taken to the sounds index page$/) do
+  expect(current_path).to eq sounds_path
+end
+
