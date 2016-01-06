@@ -23,13 +23,13 @@
       %p
         category:
         = link_to sound.category.name, sounds_path(category: sound.category.name), class: "text--blue"
-    - if sound.tags
-      %p
-        tags:
-        %span.text--blue
-          - sound.tags.each do |tag|
-            = link_to tag.name, sounds_path(tag: tag.name), class: "text--blue"
-            = "|" unless tag == sound.tags.last
+
+  - if sound.tags
+    %p.col-md-8.tags
+      tags:
+      %span.text--blue
+        - sound.tags.each do |tag|
+          = link_to tag.name, sounds_path(tag: tag.name), class: "tag"
 
 :javascript
       soundManager.onready(function() {

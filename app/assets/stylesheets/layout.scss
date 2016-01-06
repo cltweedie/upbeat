@@ -1,1 +1,50 @@
+.navbar-nav > li > a:hover,
+.navbar-nav > li > a:active {
+  background-color: grey;
+}
 
+.navbar-nav > li > a:focus {
+  background-color: #0d0d0d;
+}
+
+.nav .open > a,
+.nav .open > a:hover,
+.nav .open > a:focus {
+  background-color: $light-blue;
+}
+
+.dropdown-menu {
+  background-color: #0d0d0d;
+  > li > a {
+    color: white;
+  }
+}
+
+.alert {
+  position: absolute;
+  top: 60px;
+  left: 20%;
+  right: 20%;
+  background-color: $light-blue;
+  color: white;
+  border: none;
+  width: auto;
+  margin-bottom: 0;
+}
+
+.navbar {
+  position: static;
+  background-color: transparent;
+  margin-bottom: 0;
+  a {
+    color: white;
+  }
+  .navbar-brand {
+    font-size: 1.5em;
+  }
+}
+
+body {
+  background-color: #0d0d0d;
+  color: white;
+}
