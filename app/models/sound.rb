@@ -34,6 +34,10 @@ class Sound < ActiveRecord::Base
     Sound.where(category: category)
   end
 
+  def net_votes
+    self.get_upvotes.size - self.get_downvotes.size
+  end
+
   private
   def create_waveform_image
     Waveform.generate(self.file.path, "#{self.file.path}.png", force: true, background_color: "#000")

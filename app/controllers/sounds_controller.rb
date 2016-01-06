@@ -46,7 +46,7 @@ class SoundsController < ApplicationController
     elsif params[:v] == "down"
       @sound.disliked_by current_producer
     end
-    render json: @sound.get_upvotes.size - @sound.get_downvotes.size
+    render json: @sound.net_votes
   end
 
   private

@@ -9,10 +9,10 @@
     .playbutton{ id: "play_button_#{sound.id}" }
     = image_tag("/uploads/sound/#{sound.id}/#{sound.file.path.split('/')[-1]}.png", width: "80%")
     .voting
-      %span.glyphicon.glyphicon-chevron-up.upvote
+      %span.glyphicon.glyphicon-chevron-up.upvote{ id: "upvote_#{ sound.id }" }
       %span{ id: "votes_for_sound_#{sound.id}" }
-        = sound.get_upvotes.size - sound.get_downvotes.size
-      %span.glyphicon.glyphicon-chevron-down.downvote
+        = sound.net_votes
+      %span.glyphicon.glyphicon-chevron-down.downvote{ id: "downvote_#{ sound.id }" }
 
   .col-md-3
     - if sound.instrument
@@ -46,14 +46,14 @@
     });
 
     $(function() {
-      $('.upvote').click(function() {
+      $('#upvote_#{ sound.id }').click(function() {
         $.post("#{ vote_sound_path(sound, v: "up") }", function(data) {
           console.log("Upvote successful");
           $("#votes_for_sound_#{sound.id}").text(data)
         });
       });
 
-      $('.downvote').click(function() {
+      $('#downvote_#{ sound.id }').click(function() {
         $.post("#{ vote_sound_path(sound, v: "down") }", function(data) {
           console.log("Downvote successful");
           $("#votes_for_sound_#{sound.id}").text(data)
