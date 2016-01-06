@@ -1,5 +1,27 @@
 .container
   #banner
-  %h1.text--center All Sounds
+  %h1.text--center <span class="text--blue">all</span> sounds
+  %section.text--center
+    %span.text--blue View by
+    %span#instrument-option.filter-option
+      Instrument
+    |
+    %span#category-option.filter-option
+      Category
+    |
+    %span#tag-option.filter-option
+      Tag
+    #instrument-select.hidden-options
+      - Instrument.all.each do |instrument|
+        = link_to instrument.name, sounds_path(instrument: instrument.name)
+        = "|" unless instrument == Instrument.last
+    #category-select.hidden-options
+      - Category.all.each do |category|
+        = link_to category.name, sounds_path(category: category.name)
+        = "|" unless category == Category.last
+    #tag-select.hidden-options
+      - Tag.all.each do |tag|
+        = link_to tag.name, sounds_path(tag: tag.name)
+        = "|" unless tag == Tag.last
   - @sounds.each do |sound|
     = render sound
