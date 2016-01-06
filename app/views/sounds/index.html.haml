@@ -23,5 +23,27 @@
       - Tag.all.each do |tag|
         = link_to tag.name, sounds_path(tag: tag.name)
         = "|" unless tag == Tag.last
+    %h2= "Instrument: #{params[:instrument]}" if params[:instrument]
+    %h2= "Category: #{params[:category]}" if params[:category]
+    %h2= "Tag: #{params[:tag]}" if params[:tag]
   - @sounds.each do |sound|
     = render sound
+
+:javascript
+  $(function() {
+
+    $('#instrument-option').click(function() {
+      $('.hidden-options').hide();
+      $('#instrument-select').show();
+    });
+
+    $('#category-option').click(function() {
+      $('.hidden-options').hide();
+      $('#category-select').show();
+    });
+
+    $('#tag-option').click(function() {
+      $('.hidden-options').hide();
+      $('#tag-select').show();
+    });
+  });
