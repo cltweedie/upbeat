@@ -35,10 +35,18 @@ class SoundsController < ApplicationController
     end
   end
 
-  def upvote
+  def vote
     @sound = Sound.find(params[:id])
-    @sound.upvote_from current_producer
-    render json: @sound.votes_for.size
+    if ( params[:v] == "up") && ( current_producer.voted_down_on? @sound )
+      @sound.undisliked_by current_producer
+    elsif params[:v] == "up"
+      @sound.upvote_from current_producer
+    elsif ( params[:v] == "down" ) && ( current_producer.voted_up_on? @sound )
+      @sound.unliked_by current_producer
+    elsif params[:v] == "down"
+      @sound.disliked_by current_producer
+    end
+    render json: @sound.get_upvotes.size - @sound.get_downvotes.size
   end
 
   private

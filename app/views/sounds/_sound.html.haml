@@ -11,7 +11,7 @@
     .voting
       %span.glyphicon.glyphicon-chevron-up.upvote
       %span{ id: "votes_for_sound_#{sound.id}" }
-        = sound.votes_for.size
+        = sound.get_upvotes.size - sound.get_downvotes.size
       %span.glyphicon.glyphicon-chevron-down.downvote
 
   .col-md-3
@@ -47,8 +47,15 @@
 
     $(function() {
       $('.upvote').click(function() {
-        $.post("#{ upvote_sound_path(sound) }", function(data) {
+        $.post("#{ vote_sound_path(sound, v: "up") }", function(data) {
           console.log("Upvote successful");
+          $("#votes_for_sound_#{sound.id}").text(data)
+        });
+      });
+
+      $('.downvote').click(function() {
+        $.post("#{ vote_sound_path(sound, v: "down") }", function(data) {
+          console.log("Downvote successful");
           $("#votes_for_sound_#{sound.id}").text(data)
         });
       });

@@ -5,8 +5,7 @@ Rails.application.routes.draw do
 
   resources :sounds do
     member do
-      post :upvote
-      post :downvote
+      post :vote
     end
   end
 

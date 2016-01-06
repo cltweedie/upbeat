@@ -4,6 +4,8 @@ class Producer < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  acts_as_voter
+
   has_many :sounds
 
   after_create :send_welcome_email
