@@ -17,16 +17,17 @@
 }
 
 .tag {
-  background: linear-gradient(transparent, #0d0d0d 130%), #04B404;
+  background: linear-gradient(transparent, #0B610B), #00FF00;
   font-size: 0.75em;
-  color: white;
+  color: black;
+  font-weight: bold;
   padding: 3px 8px;
   border-radius: 10px;
   border: none;
   margin: 0 3px;
   &:hover {
     text-decoration: none;
-    color: white;
+    color: black;
   }
 }
 
@@ -43,7 +44,7 @@
 }
 
 #banner {
-  background-image: linear-gradient(transparent 50%, #0d0d0d), image-url('banner1.jpg');
+  background-image: linear-gradient(transparent 50%, #0d0d0d), linear-gradient(to left, #0d0d0d, transparent, #0d0d0d), image-url('banner1.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 0 0;
