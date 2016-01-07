@@ -1,0 +1,22 @@
+.container
+  %h1 Editing your sound
+
+  = form_for @sound do |f|
+    .form-group
+      = f.label :title
+      = f.text_field :title, class: "form-control"
+
+    .form-group
+      = f.label :instrument
+      = f.select :instrument_id, options_for_select(@instrument_options, @sound.instrument.id), {}, class: "form-control"
+
+    .form-group
+      = f.label :category
+      = f.select :category_id, options_for_select(@category_options, @sound.category_id), {}, class: "form-control"
+
+    .form-group
+      = label_tag :tags
+      = text_field_tag :tags, nil, class: "form-control", placeholder: "Enter any number of tags, separated by commas...", value: @sound.join_tags
+
+    .form-group
+      = f.submit "Update Sound", class: "btn btn-primary"

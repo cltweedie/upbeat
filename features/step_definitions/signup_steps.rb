@@ -25,7 +25,7 @@ Then(/^a producer will be created$/) do
 end
 
 Then(/^I will be taken to the homepage$/) do
-  expect(current_path).to eq root_path
+  expect(current_path).to eq sounds_path
 end
 
 Then(/^I will receive a welcome email$/) do

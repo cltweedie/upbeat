@@ -138,6 +138,25 @@ RSpec.describe SoundsController, type: :controller do
     end
   end
 
+  describe "GET to sounds/:id/edit" do
+    before do
+      @sound = Sound.new(title: "Sound")
+      @sound.file = File.open("spec/support/test.wav")
+      @sound.save!
+
+      get :edit, id: @sound.id
+    end
+
+    it "renders the edit template" do
+      expect(response).to render_template(:edit)
+      expect(response).to have_http_status(:ok)
+    end
+
+    it "loads the sound" do
+      expect(assigns(:offering)).to eq(@offering)
+    end
+  end
+
   describe "PUT to sounds/:id" do
     before do
       @sound = Sound.new(title: "Sound")

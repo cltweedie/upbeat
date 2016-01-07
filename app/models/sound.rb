@@ -20,6 +20,10 @@ class Sound < ActiveRecord::Base
     end
   end
 
+  def join_tags
+    self.tags.map { |tag| tag.name }.join(", ")
+  end
+
   def self.tagged_as(tag)
     Sound.joins(:tags).where("tags.name = ?", tag)
   end

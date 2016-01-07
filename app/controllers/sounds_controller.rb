@@ -1,6 +1,6 @@
 class SoundsController < ApplicationController
 
-  before_filter :load_sound, only: [ :show, :vote, :destroy, :update ]
+  before_filter :load_sound, only: [ :show, :vote, :destroy, :edit, :update ]
 
   def new
     if current_producer
@@ -32,6 +32,11 @@ class SoundsController < ApplicationController
   def destroy
     @sound.destroy!
     render nothing: :true
+  end
+
+  def edit
+    @instrument_options = Instrument.select_options
+    @category_options = Category.select_options
   end
 
   def update

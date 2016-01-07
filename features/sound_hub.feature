@@ -1,6 +1,5 @@
 Feature: Viewing my own sounds
 
-  @wip
   Scenario: A producer views their own sounds
     Given I have an account as a producer
       And I'm signed in
