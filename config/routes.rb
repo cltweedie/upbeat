@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :sounds do
     member do
       post :vote
+      get :download
     end
   end
 

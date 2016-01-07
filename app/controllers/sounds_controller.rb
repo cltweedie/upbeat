@@ -1,6 +1,6 @@
 class SoundsController < ApplicationController
 
-  before_filter :load_sound, only: [ :show, :vote, :destroy, :edit, :update ]
+  before_filter :load_sound, only: [ :show, :vote, :destroy, :edit, :update, :download ]
 
   def new
     if current_producer
@@ -41,6 +41,7 @@ class SoundsController < ApplicationController
 
   def update
     @sound.update(sound_params)
+    @sound.create_tags(params[:tags])
     flash[:notice] = "Sound updated."
     redirect_to sound_path(@sound)
   end
@@ -48,6 +49,10 @@ class SoundsController < ApplicationController
   def vote
     current_producer.vote(sound: @sound, v: params[:v])
     render json: @sound.net_votes
+  end
+
+  def download
+    send_file(@sound.file.path)
   end
 
   private
