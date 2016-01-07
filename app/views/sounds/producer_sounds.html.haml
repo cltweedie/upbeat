@@ -17,12 +17,13 @@
 
 .container
   #banner-mysounds
-  - if current_producer && params[:producer_id].to_i == current_producer.id
-    %h1.text--center <a href="#{ sounds_path }"><span class="text--blue">my</span> sounds</a>
-  - elsif params[:producer_id]
-    %h1.text--center <a href="#{ sounds_path }"><span class="text--blue">#{ @producer.email }'s</span> sounds</a>
-  - else
-    %h1.text--center <a href="#{ sounds_path }"><span class="text--blue">all</span> sounds</a>
+  %h1.text--center
+    %a{ href: producer_sounds_path(@producer) }
+    - if current_producer && params[:producer_id].to_i == current_producer.id
+      %span.text--blue my
+    - else
+      %span.text--blue #{ @producer.email }'s'
+    sounds
 
   %section.text--center
     %span.text--blue view by
