@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
 
   devise_for :producers
+
+  resources :producers do
+    resources :sounds
+  end
+
   root 'home#index'
 
   resources :sounds do

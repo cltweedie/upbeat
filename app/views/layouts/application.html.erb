@@ -28,6 +28,9 @@
               <li>
                 <%= link_to "Sign out", destroy_producer_session_path, method: "delete" %>
               </li>
+              <li>
+                <%= link_to "my sounds", producer_sounds_path(current_producer) %>
+              </li>
             </ul>
           </li>
         <% else %>

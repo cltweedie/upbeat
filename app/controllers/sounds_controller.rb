@@ -24,7 +24,9 @@ class SoundsController < ApplicationController
   end
 
   def index
-    if params[:tag]
+    if params[:producer_id]
+      @sounds = Producer.find(params[:producer_id]).sounds
+    elsif params[:tag]
       @sounds = Sound.tagged_as(params[:tag]).order(cached_votes_score: :desc)
     elsif params[:instrument]
       @sounds = Sound.filter_by_instrument(params[:instrument]).order(cached_votes_score: :desc)

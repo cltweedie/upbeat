@@ -29,8 +29,9 @@
       %h2 <span class="text--blue">category:</span> #{params[:category]}
     - if params[:tag]
       %h2 <span class="text--blue">tag:</span> #{params[:tag]}
-  - @sounds.each do |sound|
-    = render sound
+  - if @sounds
+    - @sounds.each do |sound|
+      = render sound
 
 :javascript
   $(function() {

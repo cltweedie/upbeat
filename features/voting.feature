@@ -1,6 +1,6 @@
 Feature: Voting
 
-  @wip @javascript
+  @javascript
   Scenario: A producer upvotes a sound
     Given I have an account as a producer
       And I'm signed in
