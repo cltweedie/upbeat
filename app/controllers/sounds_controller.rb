@@ -23,6 +23,10 @@ class SoundsController < ApplicationController
 
   def index
     @sounds = Sound.load_sounds(params)
+    if params[:producer_id]
+      @producer = Producer.find(params[:producer_id])
+      render :producer_sounds
+    end
   end
 
   def vote

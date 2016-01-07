@@ -39,9 +39,7 @@ class Sound < ActiveRecord::Base
   end
 
   def self.load_sounds(params)
-    if params[:producer_id]
-      @sounds = Producer.find(params[:producer_id]).sounds
-    elsif params[:tag]
+    if params[:tag]
       @sounds = Sound.tagged_as(params[:tag])
     elsif params[:instrument]
       @sounds = Sound.filter_by_instrument(params[:instrument])
@@ -49,6 +47,9 @@ class Sound < ActiveRecord::Base
       @sounds = Sound.filter_by_category(params[:category])
     else
       @sounds = Sound.all
+    end
+    if params[:producer_id]
+      @sounds = @sounds.where(producer_id: params[:producer_id])
     end
     @sounds.order(cached_votes_score: :desc)
   end

@@ -1,0 +1,59 @@
+.container
+  #banner-mysounds
+  - if current_producer && params[:producer_id].to_i == current_producer.id
+    %h1.text--center <a href="#{ sounds_path }"><span class="text--blue">my</span> sounds</a>
+  - elsif params[:producer_id]
+    %h1.text--center <a href="#{ sounds_path }"><span class="text--blue">#{ Producer.find(params[:producer_id]).email }'s</span> sounds</a>
+  - else
+    %h1.text--center <a href="#{ sounds_path }"><span class="text--blue">all</span> sounds</a>
+
+  %section.text--center
+    %span.text--blue view by
+    %span#instrument-option.filter-option
+      Instrument
+    |
+    %span#category-option.filter-option
+      Category
+    |
+    %span#tag-option.filter-option
+      Tag
+    #instrument-select.hidden-options
+      - Instrument.all.each do |instrument|
+        = link_to instrument.name, producer_sounds_path(@producer, instrument: instrument.name)
+        = "|" unless instrument == Instrument.last
+    #category-select.hidden-options
+      - Category.all.each do |category|
+        = link_to category.name, producer_sounds_path(@producer, category: category.name)
+        = "|" unless category == Category.last
+    #tag-select.hidden-options
+      - Tag.all.each do |tag|
+        = link_to tag.name, producer_sounds_path(@producer, tag: tag.name)
+        = "|" unless tag == Tag.last
+    - if params[:instrument]
+      %h2 <span class="text--blue">instrument:</span> #{params[:instrument]}
+    - if params[:category]
+      %h2 <span class="text--blue">category:</span> #{params[:category]}
+    - if params[:tag]
+      %h2 <span class="text--blue">tag:</span> #{params[:tag]}
+  - if @sounds
+    - @sounds.each do |sound|
+      = render sound
+
+:javascript
+  $(function() {
+
+    $('#instrument-option').click(function() {
+      $('.hidden-options').hide();
+      $('#instrument-select').show();
+    });
+
+    $('#category-option').click(function() {
+      $('.hidden-options').hide();
+      $('#category-select').show();
+    });
+
+    $('#tag-option').click(function() {
+      $('.hidden-options').hide();
+      $('#tag-select').show();
+    });
+  });

@@ -51,6 +51,17 @@
   height: 230px;
 }
 
+#banner-mysounds {
+  background-image: linear-gradient(transparent 50%, #0d0d0d),
+                    linear-gradient(to left, #0d0d0d, transparent 20%),
+                    linear-gradient(to right, #0d0d0d, transparent 20%),
+                    image-url('cdj.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  height: 230px;
+}
+
 .hidden-options {
   margin-top: 10px;
   display: none;
