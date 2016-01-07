@@ -6,13 +6,16 @@
   h2 {
     font-size: 1.5em;
   }
-  clear: both;
-  margin-top: 50px;
+}
+
+.sound-admin-links {
+  margin-top: 100px;
+  text-align: right;
 }
 
 .tags {
   margin: 10px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   text-align: center;
 }
 
@@ -69,4 +72,20 @@
 
 .filter-option {
   cursor: pointer;
+}
+
+.modal-dialog {
+  margin-top: 200px;
+}
+
+.modal-content {
+  background-color: #0d0d0d;
+  border-radius: 0;
+  box-shadow: 0 0 5px $light-blue;
+  .close {
+    color: white;
+  }
+  .modal-header, .modal-body, .modal-footer {
+    border: none;
+  }
 }

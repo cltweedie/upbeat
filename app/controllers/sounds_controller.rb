@@ -1,6 +1,6 @@
 class SoundsController < ApplicationController
 
-  before_filter :load_sound, only: [ :show, :vote ]
+  before_filter :load_sound, only: [ :show, :vote, :destroy ]
 
   def new
     if current_producer
@@ -27,6 +27,11 @@ class SoundsController < ApplicationController
       @producer = Producer.find(params[:producer_id])
       render :producer_sounds
     end
+  end
+
+  def destroy
+    @sound.destroy!
+    render nothing: :true
   end
 
   def vote
