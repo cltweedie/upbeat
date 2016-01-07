@@ -25,10 +25,6 @@
       %span.text--blue #{ @producer.email }'s'
     sounds
 
-  %a.btn.btn-success{ href: new_sound_path }
-    %span.glyphicon.glyphicon-plus.text--center
-    New sound
-
   %section.text--center
     %span.text--blue view by
     %span#instrument-option.filter-option
@@ -57,12 +53,19 @@
       %h2 <span class="text--blue">category:</span> #{params[:category]}
     - if params[:tag]
       %h2 <span class="text--blue">tag:</span> #{params[:tag]}
+
+  %a.btn.btn-success#new-sound-button{ href: new_sound_path }
+    %span.glyphicon.glyphicon-plus
+    New sound
+
   - if @sounds
     - @sounds.each do |sound|
       .sound-section{ id: "sound-section-#{sound.id}" }
         .col-md-2.sound-admin-links
           %p.delete-sound{ id: "delete_sound_#{sound.id}", "data-toggle": "modal", "data-target": "#confirm-delete", onclick: "saveSoundId(#{sound.id})" }
             %span.glyphicon.glyphicon-remove
+          %a{ href: edit_sound_path(sound) }
+            %span.glyphicon.glyphicon-edit
         .col-md-10
           = render sound
 

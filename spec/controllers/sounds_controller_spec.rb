@@ -113,4 +113,55 @@ RSpec.describe SoundsController, type: :controller do
       end
     end
   end
+
+  describe "DELETE to sounds/:id" do
+    before do
+      @sound = Sound.new(title: "Sound")
+      @sound.file = File.open("spec/support/test.wav")
+      @sound.save!
+
+      delete :destroy, id: @sound.id
+    end
+
+    after do
+      path = @sound.file.path.split("/")
+      path.pop
+      FileUtils.rm_rf(path.join("/"))
+    end
+
+    it "returns a 200 OK status code" do
+      expect(response).to have_http_status :ok
+    end
+
+    it "deletes the sound" do
+      expect(Sound.all.length).to eq 0
+    end
+  end
+
+  describe "PUT to sounds/:id" do
+    before do
+      @sound = Sound.new(title: "Sound")
+      @sound.file = File.open("spec/support/test.wav")
+      @sound.save!
+
+      params = {
+        id: @sound.id,
+        sound: {
+          title: "Updated"
+        }
+      }
+
+      put :update, params
+    end
+
+    after do
+      path = @sound.file.path.split("/")
+      path.pop
+      FileUtils.rm_rf(path.join("/"))
+    end
+
+    it "updates the sound" do
+      expect(@sound.reload.title).to eq "Updated"
+    end
+  end
 end

@@ -1,6 +1,6 @@
 class SoundsController < ApplicationController
 
-  before_filter :load_sound, only: [ :show, :vote, :destroy ]
+  before_filter :load_sound, only: [ :show, :vote, :destroy, :update ]
 
   def new
     if current_producer
@@ -32,6 +32,12 @@ class SoundsController < ApplicationController
   def destroy
     @sound.destroy!
     render nothing: :true
+  end
+
+  def update
+    @sound.update(sound_params)
+    flash[:notice] = "Sound updated."
+    redirect_to sound_path(@sound)
   end
 
   def vote

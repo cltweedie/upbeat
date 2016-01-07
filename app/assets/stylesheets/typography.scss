@@ -48,3 +48,25 @@ a {
   padding: 5px;
   cursor: pointer;
 }
+
+.glyphicon-edit {
+  border-radius: 100%;
+  background-color: #AEB404;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: $light-blue;
+  border: none;
+}
+
+.btn-danger {
+  background-color: #B40404;
+  border: none;
+}
+
+.btn-success {
+  background-color: #0B610B;
+  border: none;
+}
