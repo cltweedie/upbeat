@@ -31,7 +31,9 @@
       %h2 <span class="text--blue">tag:</span> #{params[:tag]}
   - if @sounds
     - @sounds.each do |sound|
-      = render sound
+      .sound-section{ id: "sound-section-#{sound.id}" }
+        .col-md-10.col-md-offset-2
+          = render sound
 
 :javascript
   $(function() {
