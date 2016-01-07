@@ -1,10 +1,10 @@
-.navbar-nav > li > a:hover,
-.navbar-nav > li > a:active {
+.navbar-nav > li > a:hover {
   background-color: grey;
 }
 
+.navbar-nav > li > a:active,
 .navbar-nav > li > a:focus {
-  background-color: #0d0d0d;
+  background-color: $light-blue;
 }
 
 .nav .open > a,
@@ -17,6 +17,10 @@
   background-color: #0d0d0d;
   > li > a {
     color: white;
+    &:hover {
+      background-color: $light-blue;
+      color: white;
+    }
   }
 }
 
