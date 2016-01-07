@@ -38,6 +38,21 @@ class Sound < ActiveRecord::Base
     self.get_upvotes.size - self.get_downvotes.size
   end
 
+  def self.load_sounds(params)
+    if params[:producer_id]
+      @sounds = Producer.find(params[:producer_id]).sounds
+    elsif params[:tag]
+      @sounds = Sound.tagged_as(params[:tag])
+    elsif params[:instrument]
+      @sounds = Sound.filter_by_instrument(params[:instrument])
+    elsif params[:category]
+      @sounds = Sound.filter_by_category(params[:category])
+    else
+      @sounds = Sound.all
+    end
+    @sounds.order(cached_votes_score: :desc)
+  end
+
   private
   def create_waveform_image
     Waveform.generate(self.file.path, "#{self.file.path}.png", force: true, background_color: "#0d0d0d")
