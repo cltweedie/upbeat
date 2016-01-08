@@ -34,11 +34,8 @@
       .sound-section{ id: "sound-section-#{sound.id}" }
         .col-md-10.col-md-offset-2
           = render sound
-  = link_to ">", sounds_path(page: @next_page)
-  %nav.pagination
-    %li <a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
-    - @pages.times do |page|
-      %li <a href="#">#{ page + 1 }</a></li>
+  .pagination-links.text--center
+    = paginate @sounds
 
 :javascript
   $(function() {

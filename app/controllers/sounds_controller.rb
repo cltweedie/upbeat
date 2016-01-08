@@ -22,9 +22,7 @@ class SoundsController < ApplicationController
   end
 
   def index
-    @next_page = params[:page] ? params[:page].to_i + 1 : 2
-    @sounds = Sound.load_sounds(params).paginate(page: params[:page])
-    @pages = @sounds.length / Sound.per_page
+    @sounds = Sound.load_sounds(params).page(params[:page])
     if params[:producer_id]
       @producer = Producer.find(params[:producer_id])
       render :producer_sounds
