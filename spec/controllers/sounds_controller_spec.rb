@@ -167,13 +167,14 @@ RSpec.describe SoundsController, type: :controller do
     before do
       @sound = Sound.new(title: "Sound")
       @sound.file = File.open("spec/support/test.wav")
+      @sound.tags << Tag.create!(name: "tag")
       @sound.save!
 
       params = {
         id: @sound.id,
+        tags: "these, are, tags",
         sound: {
-          title: "Updated",
-          tags: "these, are, tags"
+          title: "Updated"
         }
       }
 

@@ -55,12 +55,6 @@ RSpec.describe Sound, type: :model do
         @sound = Sound.create
       end
 
-      after do
-        path = @sound.file.path.split("/")
-        path.pop
-        FileUtils.rm_rf(path.join("/"))
-      end
-
       it "does not save" do
         expect(@sound).to_not be_valid
       end
@@ -69,12 +63,6 @@ RSpec.describe Sound, type: :model do
     context "without a file" do
       before do
         @sound = Sound.create(title: "title")
-      end
-
-      after do
-        path = @sound.file.path.split("/")
-        path.pop
-        FileUtils.rm_rf(path.join("/"))
       end
 
       it "does not save" do
