@@ -20,9 +20,10 @@
 }
 
 .tag {
-  background: linear-gradient(transparent, #0B610B), #00FF00;
+  //background: linear-gradient(transparent, #0B610B), #00FF00;
+  background: $secondary-color;
   font-size: 0.75em;
-  color: black;
+  color: white;
   font-weight: bold;
   padding: 3px 8px;
   border-radius: 10px;
@@ -30,7 +31,8 @@
   margin: 0 3px;
   &:hover {
     text-decoration: none;
-    color: black;
+    color: white;
+    box-shadow: $main-color 0 0 10px;
   }
 }
 
@@ -47,7 +49,7 @@
 }
 
 #banner {
-  background-image: linear-gradient(transparent 50%, #0d0d0d), linear-gradient(to left, #0d0d0d, transparent, #0d0d0d), image-url('banner1.jpg');
+  background-image: linear-gradient(transparent 50%, $bg-color), linear-gradient(to left, $bg-color, transparent, $bg-color), image-url('banner1.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 0 0;
@@ -55,10 +57,18 @@
 }
 
 #banner-mysounds {
-  background-image: linear-gradient(transparent 50%, #0d0d0d),
-                    linear-gradient(to left, #0d0d0d, transparent 20%),
-                    linear-gradient(to right, #0d0d0d, transparent 20%),
+  background-image: linear-gradient(transparent 50%, $bg-color),
+                    linear-gradient(to left, $bg-color, transparent 20%),
+                    linear-gradient(to right, $bg-color, transparent 20%),
                     image-url('cdj.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  height: 230px;
+}
+
+#banner-show {
+  background-image: linear-gradient(transparent 50%, $bg-color), linear-gradient(to left, $bg-color, transparent, $bg-color), image-url('music_waveform.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 0 0;
@@ -79,9 +89,9 @@
 }
 
 .modal-content {
-  background-color: #0d0d0d;
+  background-color: $bg-color;
   border-radius: 0;
-  box-shadow: 0 0 10px $light-blue;
+  box-shadow: 0 0 10px $main-color;
   .close {
     color: white;
   }

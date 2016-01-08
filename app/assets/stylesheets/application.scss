@@ -13,7 +13,10 @@
  *= require_self
  */
 
-$light-blue: #01B6EF;
+$main-color: #01B6EF;
+$secondary-color: #B40486;
+$bg-color: #0d0d0d;
+
 
 @import "bootstrap-sprockets";
 @import "bootstrap";

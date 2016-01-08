@@ -41,6 +41,7 @@ class SoundsController < ApplicationController
 
   def update
     @sound.update(sound_params)
+    @sound.tags.clear
     @sound.create_tags(params[:tags])
     flash[:notice] = "Sound updated."
     redirect_to sound_path(@sound)
@@ -52,7 +53,11 @@ class SoundsController < ApplicationController
   end
 
   def download
-    send_file(@sound.file.path)
+    if current_producer
+      send_file(@sound.file.path, type: "audio/wav")
+    else
+      flash[:alert] = "You must be logged in to do that!"
+    end
   end
 
   private

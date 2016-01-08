@@ -4,32 +4,28 @@
 
 .navbar-nav > li > a:active,
 .navbar-nav > li > a:focus {
-  background-color: $light-blue;
+  background-color: $main-color;
 }
 
 .nav .open > a,
 .nav .open > a:hover,
 .nav .open > a:focus {
-  background-color: $light-blue;
+  background-color: $main-color;
 }
 
 .dropdown-menu {
-  background-color: #0d0d0d;
+  background-color: $bg-color;
   > li > a {
     color: white;
     &:hover {
-      background-color: $light-blue;
+      background-color: $main-color;
       color: white;
     }
   }
 }
 
 .alert {
-  position: absolute;
-  top: 60px;
-  left: 20%;
-  right: 20%;
-  background-color: $light-blue;
+  background-color: $main-color;
   color: white;
   border: none;
   width: auto;
@@ -49,7 +45,7 @@
 }
 
 body {
-  background-color: #0d0d0d;
+  background-color: $bg-color;
   color: white;
 }
 
