@@ -16,6 +16,7 @@ gem 'waveform'
 gem 'soundmanager-rails'
 gem 'ruby-audio-heroku'
 gem 'acts_as_votable', '~> 0.10.0'
+gem 'omniauth-soundcloud', '~> 1.0.0'
 
 group :test do
   gem 'faker'
