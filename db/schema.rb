@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160106152046) do
+ActiveRecord::Schema.define(version: 20160108101255) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,10 +41,14 @@ ActiveRecord::Schema.define(version: 20160106152046) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "provider"
+    t.string   "uid"
   end
 
   add_index "producers", ["email"], name: "index_producers_on_email", unique: true, using: :btree
+  add_index "producers", ["provider"], name: "index_producers_on_provider", using: :btree
   add_index "producers", ["reset_password_token"], name: "index_producers_on_reset_password_token", unique: true, using: :btree
+  add_index "producers", ["uid"], name: "index_producers_on_uid", using: :btree
 
   create_table "sounds", force: :cascade do |t|
     t.integer  "producer_id"
