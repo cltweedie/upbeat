@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/cltweedie/waveform
+  revision: 9f8a27d2ababe1cf0806d2999dba5b3117c81bda
+  specs:
+    waveform (0.1.2)
+      chunky_png
+      ruby-audio-heroku
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -227,7 +235,6 @@ GEM
       rspec-mocks (~> 3.4.0)
       rspec-support (~> 3.4.0)
     rspec-support (3.4.1)
-    ruby-audio (1.6.1)
     ruby-audio-heroku (1.6.2)
     ruby_parser (3.7.2)
       sexp_processor (~> 4.1)
@@ -269,9 +276,6 @@ GEM
       json (>= 1.8.0)
     warden (1.2.3)
       rack (>= 1.0)
-    waveform (0.1.2)
-      chunky_png
-      ruby-audio
     web-console (2.2.1)
       activemodel (>= 4.0)
       binding_of_caller (>= 0.7.2)
@@ -305,7 +309,6 @@ DEPENDENCIES
   pry-byebug
   rails (= 4.2.5)
   rspec-rails (~> 3.0)
-  ruby-audio-heroku
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   simplecov
@@ -313,7 +316,7 @@ DEPENDENCIES
   spring
   turbolinks
   uglifier (>= 1.3.0)
-  waveform
+  waveform!
   web-console (~> 2.0)
 
 BUNDLED WITH
