@@ -1,0 +1,4 @@
+%li
+  - unless current_page.first?
+    %a{ href: url, rel: 'prev', remote: remote }
+      %span.glyphicon.glyphicon-menu-left

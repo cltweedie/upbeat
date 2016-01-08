@@ -60,6 +60,12 @@ a {
   font-size: 1.75em;
 }
 
+.glyphicon-menu-left,
+.glyphicon-menu-right {
+  color: $bg-color;
+  font-size: 0.75em;
+}
+
 .download-button {
   text-align: center;
   margin-left: auto;

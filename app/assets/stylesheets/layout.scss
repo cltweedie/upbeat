@@ -53,3 +53,18 @@ a:hover {
   text-decoration: none;
   color: inherit;
 }
+
+.pagination {
+  margin-top: 100px;
+  margin-bottom: 50px;
+  li a {
+    border: none;
+    background-color: white;
+    color: $bg-color;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  .active a {
+    background-color: $main-color;
+  }
+}
