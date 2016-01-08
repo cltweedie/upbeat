@@ -29,3 +29,11 @@ Category.create!(name: "Scratches")
 Category.create!(name: "Textures & Atmospheres")
 Category.create!(name: "Riffs & Licks")
 Category.create!(name: "Other")
+
+20.times do |n|
+  @sound = Sound.new(title: "Sound")
+  @sound.file = File.open("spec/support/test.wav")
+  @sound.producer = Producer.create!(email: "this_#{n}@is.email", password: "password", password_confirmation: "password")
+  @sound.tags << Tag.find_or_create_by(name: "tagname")
+  @sound.save!
+end

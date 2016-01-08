@@ -14,6 +14,8 @@ class Sound < ActiveRecord::Base
 
   after_save :create_waveform_image
 
+  self.per_page = 5
+
   def create_tags(tags)
     tags.split(",").each do |tag|
       self.tags << Tag.find_or_create_by(name: tag.strip)
