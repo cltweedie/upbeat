@@ -147,6 +147,12 @@ RSpec.describe SoundsController, type: :controller do
       get :edit, id: @sound.id
     end
 
+    after do
+      path = @sound.file.path.split("/")
+      path.pop
+      FileUtils.rm_rf(path.join("/"))
+    end
+
     it "renders the edit template" do
       expect(response).to render_template(:edit)
       expect(response).to have_http_status(:ok)
@@ -166,7 +172,8 @@ RSpec.describe SoundsController, type: :controller do
       params = {
         id: @sound.id,
         sound: {
-          title: "Updated"
+          title: "Updated",
+          tags: "these, are, tags"
         }
       }
 
