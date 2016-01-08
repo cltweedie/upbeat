@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_for :producers
+  devise_for :producers,  controllers: { omniauth_callbacks: "producers/omniauth_callbacks" }
 
   resources :producers do
     resources :sounds

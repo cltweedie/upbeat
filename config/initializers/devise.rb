@@ -8,6 +8,8 @@ Devise.setup do |config|
   # by default. You can change it below and use your own secret key.
   # config.secret_key = '7564aed2218102d2191ce35fb57bfa9ee27e00017e08a17798c00e8ad51fb5f6aa1c212bbb76deb2ded22873284e6739c6d1c80dec7552cdf920f112d293b3a3'
 
+  config.omniauth :soundcloud, "df5cf1ba47848ed2b170135cdb6907b5", "f3a8febc62414d6acf7cd2dee02bc0fb",
+                                callback_url: "http://127.0.0.1:3000/producers/auth/soundcloud/callback"
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
