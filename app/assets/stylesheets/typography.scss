@@ -77,7 +77,10 @@ a {
 }
 
 .btn-success {
-  background-color: $secondary-color;
+  background-color: $tertiary-color;
+  &, .glyphicon {
+    color: $bg-color;
+  }
   border: none;
 }
 
