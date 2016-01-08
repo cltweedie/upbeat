@@ -2,17 +2,17 @@
   .modal-dialog{ role: "document" }
     .modal-content
       .modal-header
-        %button{ type: "button", class: "close", "data-dismiss": "modal", "aria-label": "Close" }
-          %span{ "aria-hidden": "true" }
+        %button{ type: "button", class: "close", "data-dismiss" => "modal", "aria-label" => "Close" }
+          %span{ "aria-hidden" => "true" }
             &times;
         %h4.modal-title
           You're about to delete a sound
       .modal-body
         Are you sure you want to delete this sound? (this can't be undone)
       .modal-footer
-        %button{ type: "button", class: "btn btn-primary", "data-dismiss": "modal" }
+        %button{ type: "button", class: "btn btn-primary", "data-dismiss" => "modal" }
           Close
-        %button{ type: "button", class: "btn btn-danger", "data-dismiss": "modal", onclick: "deleteSound()" }
+        %button{ type: "button", class: "btn btn-danger", "data-dismiss" => "modal", onclick: "deleteSound()" }
           Confirm Delete
 
 .container
@@ -62,9 +62,9 @@
     - @sounds.each do |sound|
       .sound-section{ id: "sound-section-#{sound.id}" }
         .col-md-2.sound-admin-links
-          %p.delete-sound{ id: "delete_sound_#{sound.id}", "data-toggle": "modal", "data-target": "#confirm-delete", onclick: "saveSoundId(#{sound.id})", "title": "Delete sound" }
+          %p.delete-sound{ id: "delete_sound_#{sound.id}", "data-toggle" => "modal", "data-target" => "#confirm-delete", onclick: "saveSoundId(#{sound.id})", "title" => "Delete sound" }
             %span.glyphicon.glyphicon-remove
-          %a{ href: edit_sound_path(sound), "title": "Edit sound" }
+          %a{ href: edit_sound_path(sound), "title" => "Edit sound" }
             %span.glyphicon.glyphicon-edit
         .col-md-10
           = render sound

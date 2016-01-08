@@ -54,7 +54,7 @@ class SoundsController < ApplicationController
 
   def download
     if current_producer
-      send_file(@sound.file.path, type: "audio/wav")
+      send_file(@sound.file.path, type: "audio/wav") and return
     else
       flash[:alert] = "You must be logged in to do that!"
     end

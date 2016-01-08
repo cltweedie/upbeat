@@ -1,10 +1,16 @@
 GIT
-  remote: https://github.com/cltweedie/waveform
-  revision: 9f8a27d2ababe1cf0806d2999dba5b3117c81bda
+  remote: https://github.com/mediatainment/ruby-audio-heroku-gem.git
+  revision: 945cfeddbce90a4e9e840d4d725fd1fca167aa64
+  specs:
+    ruby-audio-heroku-gem (1.6.1)
+
+GIT
+  remote: https://github.com/musicglue/waveform-heroku.git
+  revision: 9a1245193018262637d36c9f3621aa80925dc124
   specs:
     waveform (0.1.2)
       chunky_png
-      ruby-audio-heroku
+      ruby-audio-heroku-gem
 
 GEM
   remote: https://rubygems.org/
@@ -235,7 +241,6 @@ GEM
       rspec-mocks (~> 3.4.0)
       rspec-support (~> 3.4.0)
     rspec-support (3.4.1)
-    ruby-audio-heroku (1.6.2)
     ruby_parser (3.7.2)
       sexp_processor (~> 4.1)
     sass (3.4.20)
@@ -309,6 +314,7 @@ DEPENDENCIES
   pry-byebug
   rails (= 4.2.5)
   rspec-rails (~> 3.0)
+  ruby-audio-heroku-gem!
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   simplecov

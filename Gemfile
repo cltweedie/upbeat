@@ -12,7 +12,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'carrierwave'
-gem 'waveform', git: 'https://github.com/cltweedie/waveform'
+gem 'ruby-audio-heroku-gem', git: "https://github.com/mediatainment/ruby-audio-heroku-gem.git"
+gem 'waveform', git: "https://github.com/musicglue/waveform-heroku.git"
 gem 'soundmanager-rails'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'omniauth-soundcloud', '~> 1.0.0'
