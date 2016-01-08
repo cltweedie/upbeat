@@ -3,7 +3,7 @@ Given(/^I have an account as a producer$/) do
 end
 
 When(/^I choose to sign in$/) do
-  page.find("#signin-button").click
+  click_on "Sign in"
 end
 
 Then(/^I will be taken to the sign\-in page$/) do
