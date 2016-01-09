@@ -1,0 +1,2 @@
+module SamplePacksHelper
+end

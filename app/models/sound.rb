@@ -62,13 +62,14 @@ class Sound < ActiveRecord::Base
 
   private
   def create_waveform_image
-    case self.category.name
-    when "Hits", "Stabs", "Notes", "Chords"
-      Waveform.generate(self.file.path, "#{self.file.path}.png", force: true, background_color: "#0d0d0d")
-    when "Loops", "Scratches", "Riffs & Licks"
-      Waveform.generate(self.file.path, "#{self.file.path}.png", force: true, background_color: "#0d0d0d", color: "#B40486")
-    else
-      Waveform.generate(self.file.path, "#{self.file.path}.png", force: true, background_color: "#0d0d0d", color: "#74DF00")
-    end
+    Waveform.generate(self.file.path, "#{self.file.path}.png", force: true, background_color: "#0d0d0d")
+    # case self.category.name
+    # when "Hits", "Stabs", "Notes", "Chords"
+    #   Waveform.generate(self.file.path, "#{self.file.path}.png", force: true, background_color: "#0d0d0d")
+    # when "Loops", "Scratches", "Riffs & Licks"
+    #   Waveform.generate(self.file.path, "#{self.file.path}.png", force: true, background_color: "#0d0d0d", color: "#B40486")
+    # else
+    #   Waveform.generate(self.file.path, "#{self.file.path}.png", force: true, background_color: "#0d0d0d", color: "#74DF00")
+    # end
   end
 end

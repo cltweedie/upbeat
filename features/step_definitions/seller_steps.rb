@@ -40,9 +40,21 @@ Then(/^I will be taken to the new sample pack page$/) do
 end
 
 When(/^I fill in the form with valid details$/) do
-  pending # express the regexp above with the code you wish you had
+  fill_in "Title", with: "Sample Pack 1"
+  save_and_open_page
+  attach_file(:File, "#{Rails.root}/features/upload-files/samplepack.zip")
+end
+
+When(/^I submit the sample pack$/) do
+  click_on "Add sample pack"
 end
 
 Then(/^a new sample pack will exist$/) do
-  pending # express the regexp above with the code you wish you had
+  expect(SamplePack.all.length).to eq 1
+  expect(SamplePack.first.title).to eq "Sample Pack 1"
 end
+
+Then(/^I will be taken to the sample pack show page$/) do
+  expect(page).to have_content "Sample Pack 1"
+end
+

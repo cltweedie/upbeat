@@ -1,0 +1,15 @@
+.container
+  - if current_producer && current_producer.type == "Seller"
+    %h1 Upload a sample pack
+
+    = form_for @pack do |f|
+      .form-group
+        = f.label :title
+        = f.text_field :title, class: "form-control"
+
+      .form-group
+        = f.label :file
+        = f.file_field :file
+
+      .form-group
+        = f.submit "Add sample pack", class: "btn btn-primary"

@@ -21,6 +21,7 @@ Feature: Sellers
     When I choose to add a new sample pack
     Then I will be taken to the new sample pack page
     When I fill in the form with valid details
+      And I submit the sample pack
     Then a new sample pack will exist
       And I will see a flash notice "Sample pack uploaded successfully"
-      And I will be taken to the my sounds page
+      And I will be taken to the sample pack show page
