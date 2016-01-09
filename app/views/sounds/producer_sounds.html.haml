@@ -19,10 +19,10 @@
   #banner-mysounds
   %h1.text--center
     %a{ href: producer_sounds_path(@producer) }
-    - if current_producer && params[:producer_id].to_i == current_producer.id
+    - if ProducersHelper.producer_is_this_one?(current_producer, params)
       %span.text--blue my
     - else
-      %span.text--blue #{ @producer.email }'s'
+      %span.text--blue #{ @producer.email }'s
     sounds
 
   %section.text--center
@@ -54,20 +54,25 @@
     - if params[:tag]
       %h2 <span class="text--blue">tag:</span> #{params[:tag]}
 
-  %a.btn.btn-success.btn-sm#new-sound-button{ href: new_sound_path }
-    %span.glyphicon.glyphicon-plus
-    New sound
+  - if ProducersHelper.producer_is_this_one?(current_producer, params)
+    %a.btn.btn-success.btn-sm#new-sound-button{ href: new_sound_path }
+      %span.glyphicon.glyphicon-plus
+      New sound
 
   - if @sounds
     - @sounds.each do |sound|
       .sound-section{ id: "sound-section-#{sound.id}" }
-        .col-md-2.sound-admin-links
-          %p.delete-sound{ id: "delete_sound_#{sound.id}", "data-toggle" => "modal", "data-target" => "#confirm-delete", onclick: "saveSoundId(#{sound.id})", "title" => "Delete sound" }
-            %span.glyphicon.glyphicon-remove
-          %a{ href: edit_sound_path(sound), "title" => "Edit sound" }
-            %span.glyphicon.glyphicon-edit
-        .col-md-10
-          = render sound
+        - if ProducersHelper.producer_is_this_one?(current_producer, params)
+          .col-md-2.sound-admin-links
+            %p.delete-sound{ id: "delete_sound_#{sound.id}", "data-toggle" => "modal", "data-target" => "#confirm-delete", onclick: "saveSoundId(#{sound.id})", "title" => "Delete sound" }
+              %span.glyphicon.glyphicon-remove
+            %a{ href: edit_sound_path(sound), "title" => "Edit sound" }
+              %span.glyphicon.glyphicon-edit
+          .col-md-10
+            = render sound
+        - else
+          .col-md-10.col-md-offset-2
+            = render sound
 
 :javascript
   $(function() {
