@@ -26,10 +26,13 @@
             </a>
             <ul class="dropdown-menu">
               <li>
-                <%= link_to "Sign out", destroy_producer_session_path, method: "delete" %>
+                <%= link_to "my sounds", producer_sounds_path(current_producer) %>
               </li>
               <li>
-                <%= link_to "my sounds", producer_sounds_path(current_producer) %>
+                <%= link_to "my account", account_producer_path(current_producer) %>
+              </li>
+              <li>
+                <%= link_to "Sign out", destroy_producer_session_path, method: "delete" %>
               </li>
             </ul>
           </li>

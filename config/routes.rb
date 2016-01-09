@@ -3,7 +3,10 @@ Rails.application.routes.draw do
   devise_for :producers,  controllers: { omniauth_callbacks: "producers/omniauth_callbacks" }
 
   resources :producers do
-    resources :sounds
+    member do
+      get :account
+    end
+    resources :sounds, only: [ :index ]
   end
 
   root 'home#index'

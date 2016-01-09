@@ -1,15 +1,15 @@
 When(/^I choose to view my account settings$/) do
-  pending # express the regexp above with the code you wish you had
+  click_on "my account"
 end
 
 Then(/^I will be taken to the account settings page$/) do
-  pending # express the regexp above with the code you wish you had
+  expect(page).to have_content "account settings"
 end
 
 When(/^I choose to register as a seller$/) do
-  pending # express the regexp above with the code you wish you had
+  click_on "Register as seller"
 end
 
 Then(/^I will have an account as a seller$/) do
-  pending # express the regexp above with the code you wish you had
+  expect(Seller.all.length).to eq 1
 end
