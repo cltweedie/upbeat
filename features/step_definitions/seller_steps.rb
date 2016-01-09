@@ -41,7 +41,6 @@ end
 
 When(/^I fill in the form with valid details$/) do
   fill_in "Title", with: "Sample Pack 1"
-  save_and_open_page
   attach_file(:File, "#{Rails.root}/features/upload-files/samplepack.zip")
 end
 
@@ -52,6 +51,7 @@ end
 Then(/^a new sample pack will exist$/) do
   expect(SamplePack.all.length).to eq 1
   expect(SamplePack.first.title).to eq "Sample Pack 1"
+  expect(SamplePack.first.file).to_not be_nil
 end
 
 Then(/^I will be taken to the sample pack show page$/) do
