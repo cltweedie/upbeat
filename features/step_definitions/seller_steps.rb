@@ -32,11 +32,11 @@ Given(/^I'm on the my sounds page$/) do
 end
 
 When(/^I choose to add a new sample pack$/) do
-  click_on "Add sample pack"
+  click_on "New pack"
 end
 
 Then(/^I will be taken to the new sample pack page$/) do
-  pending # express the regexp above with the code you wish you had
+  expect(current_path).to eq new_sample_pack_path
 end
 
 When(/^I fill in the form with valid details$/) do
