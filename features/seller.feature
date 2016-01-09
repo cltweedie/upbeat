@@ -1,6 +1,6 @@
 Feature: Sellers
 
-  @wip @javascript
+  @javascript
   Scenario: A producer registers as a seller
     Given I have an account as a producer
       And I'm signed in
@@ -12,3 +12,15 @@ Feature: Sellers
     When I confirm
     Then I will see a flash notice "Thank you for registering as a seller."
       And I will have an account as a seller
+
+  @wip
+  Scenario: A seller uploads a premium sample pack
+    Given I have an account as a seller
+      And I'm signed in
+      And I'm on the my sounds page
+    When I choose to add a new sample pack
+    Then I will be taken to the new sample pack page
+    When I fill in the form with valid details
+    Then a new sample pack will exist
+      And I will see a flash notice "Sample pack uploaded successfully"
+      And I will be taken to the my sounds page

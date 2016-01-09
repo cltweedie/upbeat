@@ -12,7 +12,7 @@
       .modal-footer
         %button{ type: "button", class: "btn btn-primary", "data-dismiss" => "modal" }
           Cancel
-        %button{ type: "button", class: "btn btn-danger", "data-dismiss" => "modal", onclick: "createSeller(#{current_producer.id})" }
+        %button{ type: "button", class: "btn btn-success", "data-dismiss" => "modal", onclick: "createSeller(#{current_producer.id})" }
           Confirm
 
 .container
@@ -24,5 +24,6 @@
 
   %h2.text--center account settings
 
-  %span{"data-toggle" => "modal", "data-target" => "#confirm-seller-account", "title" => "Become a Seller", class: "btn btn-primary", id: "seller-register" }
-    Register as a seller
+  - unless current_producer.type == "Seller"
+    %span{"data-toggle" => "modal", "data-target" => "#confirm-seller-account", "title" => "Become a Seller", class: "btn btn-primary", id: "seller-register" }
+      Register as a seller
