@@ -1,4 +1,5 @@
 When(/^I choose to view my account settings$/) do
+  click_on @producer.email
   click_on "my account"
 end
 
@@ -7,7 +8,15 @@ Then(/^I will be taken to the account settings page$/) do
 end
 
 When(/^I choose to register as a seller$/) do
-  click_on "Register as seller"
+  page.find('#seller-register').click
+end
+
+Then(/^I will see a modal asking me to confirm$/) do
+  expect(page).to have_content "Would you like to register as a seller?"
+end
+
+When(/^I confirm$/) do
+  click_on "Confirm"
 end
 
 Then(/^I will have an account as a seller$/) do

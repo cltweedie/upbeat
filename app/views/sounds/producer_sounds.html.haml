@@ -59,6 +59,11 @@
       %span.glyphicon.glyphicon-plus
       New sound
 
+  - if current_producer.type == "Seller"
+    %a.btn.btn-success.btn-sm#new-sample-pack{ href: new_sound_path }
+      %span.glyphicon.glyphicon-plus
+      New pack
+
   - if @sounds
     - @sounds.each do |sound|
       .sound-section{ id: "sound-section-#{sound.id}" }

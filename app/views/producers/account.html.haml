@@ -1,0 +1,28 @@
+.modal.fade#confirm-seller-account{ tabindex: 1, role: "dialog" }
+  .modal-dialog{ role: "document" }
+    .modal-content
+      .modal-header
+        %button{ type: "button", class: "close", "data-dismiss" => "modal", "aria-label" => "Close" }
+          %span{ "aria-hidden" => "true" }
+            &times;
+        %h4.modal-title
+          Register for a seller account
+      .modal-body
+        Would you like to register as a seller? This will allow you to upload sample packs that you can charge for.
+      .modal-footer
+        %button{ type: "button", class: "btn btn-primary", "data-dismiss" => "modal" }
+          Cancel
+        %button{ type: "button", class: "btn btn-danger", "data-dismiss" => "modal", onclick: "createSeller(#{current_producer.id})" }
+          Confirm
+
+.container
+  #banner-mysounds
+  %h1.text--center
+    %a{ href: account_producer_path(current_producer) }
+      %span.text--blue my
+      account
+
+  %h2.text--center account settings
+
+  %span{"data-toggle" => "modal", "data-target" => "#confirm-seller-account", "title" => "Become a Seller", class: "btn btn-primary", id: "seller-register" }
+    Register as a seller
