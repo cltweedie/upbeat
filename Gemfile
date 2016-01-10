@@ -11,6 +11,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
+gem 'carrierwave-aws'
 gem 'carrierwave'
 gem 'ruby-audio-heroku-gem', git: "https://github.com/mediatainment/ruby-audio-heroku-gem.git"
 gem 'waveform', git: "https://github.com/musicglue/waveform-heroku.git"
