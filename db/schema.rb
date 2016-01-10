@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160110134038) do
+ActiveRecord::Schema.define(version: 20160110140424) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,12 +52,14 @@ ActiveRecord::Schema.define(version: 20160110134038) do
   add_index "producers", ["uid"], name: "index_producers_on_uid", using: :btree
 
   create_table "sample_packs", force: :cascade do |t|
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.string   "title"
     t.string   "file"
     t.integer  "seller_id"
-    t.decimal  "price",      precision: 8, scale: 2
+    t.decimal  "price",       precision: 8, scale: 2
+    t.string   "cover_image"
+    t.text     "description"
   end
 
   create_table "sounds", force: :cascade do |t|
