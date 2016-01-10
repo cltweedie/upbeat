@@ -7,13 +7,43 @@ class SamplePackImageUploader < CarrierWave::Uploader::Base
   # include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
-  storage :file
-  # storage :fog
+  storage :aws
+    # storage :fog
+
+    def initialize(*)
+      super
+
+      self.aws_bucket = 'upbeat-sounds'
+      self.aws_acl    = 'public-read'
+
+      # Optionally define an asset host for selfurations that are fronted by a
+      # content host, such as CloudFront.
+      self.asset_host = 'http://example.com'
+
+      # The maximum period for authenticated_urls is only 7 days.
+      self.aws_authenticated_url_expiration = 60 * 60 * 24 * 7
+
+      # Set custom options such as cache control to leverage browser caching
+      self.aws_attributes = {
+        expires: 1.week.from_now.httpdate,
+        cache_control: 'max-age=604800'
+      }
+
+      self.aws_credentials = {
+        access_key_id:     ENV.fetch('AWS_ACCESS_KEY_ID'),
+        secret_access_key: ENV.fetch('AWS_SECRET_ACCESS_KEY'),
+        region:            'eu-west-1' # Required
+      }
+
+      # Optional: Signing of download urls, e.g. for serving private
+      # content through CloudFront.
+      self.aws_signer = -> (unsigned_url, options) { Aws::CF::Signer.sign_url unsigned_url, options }
+    end
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+    "uploads/#{model.class.to_s.underscore}/#{model.id}"
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
