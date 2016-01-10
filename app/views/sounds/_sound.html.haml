@@ -7,7 +7,7 @@
 
   .col-md-8
     .playbutton{ id: "play_button_#{sound.id}" }
-    = image_tag("/uploads/sound/#{sound.id}/#{sound.file.path.split('/')[-1]}.png", width: "80%")
+    = image_tag("https://upbeat-sounds.s3.amazonaws.com/uploads/waveform/#{sound.file.path.split("/")[-1]}.png", width: "80%")
     .voting
       %span.glyphicon.glyphicon-chevron-up.upvote{ id: "upvote_#{ sound.id }" }
       %span{ id: "votes_for_sound_#{sound.id}" }
