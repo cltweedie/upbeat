@@ -5,6 +5,7 @@
         = sample_pack.title
     %p.text--blue
       by #{sample_pack.seller.email}
+    = image_tag(sample_pack.cover_image.path.split("public")[1], width: "80%")
 
   .col-md-6.buying-options
     %span.text--right.text--pink

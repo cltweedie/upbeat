@@ -23,6 +23,6 @@ class SamplePacksController < ApplicationController
 
   private
   def sample_pack_params
-    params.require(:sample_pack).permit(:title, :file, :price)
+    params.require(:sample_pack).permit(:title, :file, :price, :cover_image)
   end
 end
