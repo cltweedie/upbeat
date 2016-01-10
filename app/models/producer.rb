@@ -11,7 +11,7 @@ class Producer < ActiveRecord::Base
 
   after_create :send_welcome_email
 
-  def vote(sound:, v:)
+  def vote(sound: 1, v: 'up')
     if ( v == "up") && ( self.voted_down_on? sound )
       sound.undisliked_by self
     elsif v == "up"
