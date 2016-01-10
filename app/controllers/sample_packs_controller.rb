@@ -14,7 +14,7 @@ class SamplePacksController < ApplicationController
   end
 
   def show
-    @pack = SamplePack.find(params[:id])
+    @sample_pack = SamplePack.find(params[:id])
   end
 
   def index
@@ -23,6 +23,6 @@ class SamplePacksController < ApplicationController
 
   private
   def sample_pack_params
-    params.require(:sample_pack).permit(:title, :file)
+    params.require(:sample_pack).permit(:title, :file, :price)
   end
 end

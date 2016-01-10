@@ -1,6 +1,12 @@
 .sample-pack-partial.col-md-12
-  %a{ href: "#{ sample_pack_path(sample_pack) }" }
-    %h2
-      = sample_pack.title
-  %p.text--blue
-    by #{sample_pack.seller.email}
+  .col-md-6
+    %a{ href: "#{ sample_pack_path(sample_pack) }" }
+      %h2
+        = sample_pack.title
+    %p.text--blue
+      by #{sample_pack.seller.email}
+
+  .col-md-6.buying-options
+    %span.text--right.text--pink
+      £
+      = sample_pack.price

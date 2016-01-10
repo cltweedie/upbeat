@@ -12,4 +12,8 @@
         = f.file_field :file
 
       .form-group
+        = f.label :price
+        = f.text_field :price, class: "form-control"
+
+      .form-group
         = f.submit "Add sample pack", class: "btn btn-primary"

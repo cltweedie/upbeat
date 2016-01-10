@@ -14,6 +14,14 @@ a {
   color: $main-color;
 }
 
+.text--pink {
+  color: $secondary-color;
+}
+
+.text--green {
+  color: $tertiary-color;
+}
+
 .text--bold {
   font-weight: bold;
 }
@@ -24,6 +32,10 @@ a {
 
 .text--center {
   text-align: center;
+}
+
+.text--right {
+  text-align: right;
 }
 
 .glyphicon {
