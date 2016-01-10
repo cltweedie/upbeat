@@ -17,6 +17,10 @@ class SamplePacksController < ApplicationController
     @pack = SamplePack.find(params[:id])
   end
 
+  def index
+    @sample_packs = SamplePack.all
+  end
+
   private
   def sample_pack_params
     params.require(:sample_pack).permit(:title, :file)

@@ -1,6 +1,11 @@
 .container
   #banner
-  %h1.text--center <a href="#{ sounds_path }"><span class="text--blue">all</span> sounds</a>
+  %h1.text--center
+    %a{ href: sounds_path
+      %span.text--blue
+        all
+      sounds
+
   %section.text--center
     %span.text--blue view by
     %span#instrument-option.filter-option

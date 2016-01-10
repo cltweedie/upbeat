@@ -14,11 +14,18 @@
         Up<span class="text--blue">beat</span>
       </a>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="<%= sounds_path %>">
-          <span class="text--blue">all</span>
+        <li>
+          <a href="<%= sounds_path %>">
+            <span class="text--blue">all</span>
             sounds
-            </a>
-          </li>
+          </a>
+        </li>
+        <li>
+          <a href="<%= sample_packs_path %>">
+            <span class="text--blue">sample</span>
+            packs
+          </a>
+        </li>
         <% if current_producer %>
           <li>
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
