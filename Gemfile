@@ -19,6 +19,7 @@ gem 'soundmanager-rails'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'omniauth-soundcloud', '~> 1.0.0'
 gem 'kaminari'
+gem 'stripe'
 
 group :test do
   gem 'faker'
