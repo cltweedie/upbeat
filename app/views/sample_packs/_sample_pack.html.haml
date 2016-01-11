@@ -6,17 +6,18 @@
       by #{sample_pack.seller.email}
     .col-md-3
       = image_tag("https://upbeat-sounds.s3.amazonaws.com/#{sample_pack.cover_image.path}", width: "170px")
-    %p.col-md-7
+    %p.col-md-6
       = sample_pack.description
 
-    .col-md-2.buying-options
+    .col-md-3.buying-options
       - if current_page? sample_packs_path
-        %span.text--right.text--pink
+        %span.text--right.text--pink.price
           £
           = sample_pack.price
 
         = form_tag charges_path do
           %input{ type: "hidden", name: "sample_pack", value: sample_pack.id }
+          %input{ type: "hidden", name: "price", value: sample_pack.price * 100 }
           %article
             - if flash[:error].present?
               #error_explanation
