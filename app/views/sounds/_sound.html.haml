@@ -2,8 +2,8 @@
   %a{ href: "#{ sound_path(sound) }" }
     %h2
       = sound.title
-  %p.text--blue
-    by #{sound.producer.email}
+  %p
+    = link_to "by #{sound.producer.email}", producer_sounds_path(sound.producer), class: "text--blue"
 
   .col-md-8
     .playbutton{ id: "play_button_#{sound.id}" }
