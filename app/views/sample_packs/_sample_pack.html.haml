@@ -1,8 +1,7 @@
 .sample-pack-partial.col-md-11.col-md-offset-1
   .col-md-10
-    %a{ href: "#{ sample_pack_path(sample_pack) }" }
-      %h2
-        = sample_pack.title
+    %h2
+      = sample_pack.title
     %p.text--blue
       by #{sample_pack.seller.email}
     .col-md-3
@@ -11,6 +10,28 @@
       = sample_pack.description
 
     .col-md-2.buying-options
-      %span.text--right.text--pink
-        £
-        = sample_pack.price
+      - if current_page? sample_packs_path
+        %span.text--right.text--pink
+          £
+          = sample_pack.price
+
+        = form_tag charges_path do
+          %input{ type: "hidden", name: "sample_pack", value: sample_pack.id }
+          %article
+            - if flash[:error].present?
+              #error_explanation
+                %p= flash[:error]
+
+          = javascript_tag nil, src: "https://checkout.stripe.com/checkout.js",
+                  class: "stripe-button",
+                  "data-key" => "#{ Rails.configuration.stripe[:publishable_key] }",
+                  "data-description" => "#{ sample_pack.title } sample pack",
+                  "data-amount" => "#{ sample_pack.price * 100 }",
+                  "data-currency" => "gbp",
+                  "data-locale" => "auto",
+                  "data-value" => "Buy",
+                  "data-samplepack" => "#{ sample_pack.id }"
+
+      - else
+        %a.btn.btn-success{ href: download_sample_pack_path(sample_pack) }
+          DOWNLOAD

@@ -21,6 +21,11 @@ class SamplePacksController < ApplicationController
     @sample_packs = SamplePack.all
   end
 
+  def download
+    @sample_pack = SamplePack.find(params[:id])
+    redirect_to "https://upbeat-sounds.s3.amazonaws.com/#{@sample_pack.file.path}"
+  end
+
   private
   def sample_pack_params
     params.require(:sample_pack).permit(:title, :file, :price, :cover_image, :description)

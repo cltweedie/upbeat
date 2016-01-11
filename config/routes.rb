@@ -18,7 +18,14 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :sample_packs, only: [ :new, :create, :show, :index ]
+  resources :sample_packs, only: [ :new, :create, :show, :index ] do
+    member do
+      get :download
+    end
+  end
+
+
+  resources :charges
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
