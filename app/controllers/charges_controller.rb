@@ -1,8 +1,5 @@
 class ChargesController < ApplicationController
 
-  def new
-  end
-
   def create
     @amount = params[:price].to_i
 
@@ -14,7 +11,7 @@ class ChargesController < ApplicationController
     charge = Stripe::Charge.create(
       :customer    => customer.id,
       :amount      => @amount,
-      :description => 'Rails Stripe customer',
+      :description => 'Sample pack',
       :currency    => 'gbp'
     )
 
