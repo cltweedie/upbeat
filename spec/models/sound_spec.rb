@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Sound, type: :model do
-  describe "relations" do
+  describe "associations" do
     before do
       @sound = Sound.new(title: "Sound1")
       @sound.file = File.open("spec/support/test.wav")

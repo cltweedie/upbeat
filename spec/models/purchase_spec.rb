@@ -12,5 +12,7 @@ RSpec.describe Purchase, type: :model do
   it "keeps track of whether a sample pack has been purchased by a producer" do
     expect(@producer.purchased_packs.length).to eq 1
     expect(@producer.purchased_packs.first.title).to eq "sample pack 1"
+
+    expect(@sample_pack.buyers.length).to eq 1
   end
 end

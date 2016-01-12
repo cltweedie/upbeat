@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe SamplePack, type: :model do
-  describe "relations" do
+  describe "associations" do
     before do
       @seller = Seller.create!(email: "email@email.com", password: "password", password_confirmation: "password")
       @sample_pack = SamplePack.new(title: "sample pack 1")

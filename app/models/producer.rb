@@ -9,6 +9,9 @@ class Producer < ActiveRecord::Base
 
   has_many :sounds
 
+  has_many :purchases
+  has_many :purchased_packs, through: :purchases, source: :sample_pack
+
   after_create :send_welcome_email
 
   def vote(sound: 1, v: "up")
