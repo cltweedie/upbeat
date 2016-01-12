@@ -41,6 +41,7 @@ end
 
 When(/^I fill in the form with valid details$/) do
   fill_in "Title", with: "Sample Pack 1"
+  fill_in "Price", with: 4.99
   attach_file(:File, "#{Rails.root}/features/upload-files/samplepack.zip")
 end
 

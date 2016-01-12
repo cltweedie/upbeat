@@ -11,7 +11,7 @@ class SamplePacksController < ApplicationController
     @pack.seller = current_producer
     if @pack.save
       flash[:notice] = "Sample pack uploaded successfully"
-      redirect_to samples_pack_path
+      redirect_to sample_packs_path
     end
   end
 

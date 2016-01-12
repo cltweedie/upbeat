@@ -10,7 +10,6 @@ Feature: Profile
     When I choose to view my profile
     Then I will be taken to the my profile page
 
-  @wip
   Scenario: A producer edits their profile
     Given I'm on my profile page
     When I choose to edit my profile
@@ -20,3 +19,5 @@ Feature: Profile
     Then My profile will be updated
       And I will see a flash notice "Your profile has been updated."
       And I will be taken to the my profile page
+
+
