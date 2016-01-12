@@ -144,8 +144,15 @@ GEM
       haml (~> 4.0.0)
       nokogiri (~> 1.6.0)
       ruby_parser (~> 3.5)
+    httmultiparty (0.3.16)
+      httparty (>= 0.7.3)
+      mimemagic
+      multipart-post
     http-cookie (1.0.2)
       domain_name (~> 0.5)
+    httparty (0.13.7)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.7.0)
     jbuilder (2.4.0)
       activesupport (>= 3.0.0, < 5.1)
@@ -168,6 +175,7 @@ GEM
       mime-types (>= 1.16, < 3)
     method_source (0.8.2)
     mime-types (2.99)
+    mimemagic (0.3.1)
     mini_portile2 (2.0.0)
     minitest (5.8.3)
     multi_json (1.11.2)
@@ -279,6 +287,10 @@ GEM
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.0)
     slop (3.6.0)
+    soundcloud (0.3.1)
+      hashie
+      httmultiparty (>= 0.3)
+      httparty (>= 0.7.3)
     soundmanager-rails (1.0.1)
     spring (1.6.1)
     sprockets (3.5.2)
@@ -344,6 +356,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   simplecov
+  soundcloud
   soundmanager-rails
   spring
   stripe

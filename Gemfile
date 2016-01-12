@@ -20,6 +20,7 @@ gem 'acts_as_votable', '~> 0.10.0'
 gem 'omniauth-soundcloud', '~> 1.0.0'
 gem 'kaminari'
 gem 'stripe'
+gem 'soundcloud'
 
 group :test do
   gem 'faker'
