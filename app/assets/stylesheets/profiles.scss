@@ -3,7 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .profile-attrs {
+  height: 200px;
   margin-top: 50px;
+  margin-bottom: 50px
   dt {
     color: $tertiary-color;
   }
@@ -14,6 +16,7 @@
 }
 
 .soundcloud-tracks {
+  clear: both;
   h2 {
     margin-top: 50px;
     margin-bottom: 50px;

@@ -10,15 +10,19 @@
     %span.text--blue
       view
     profile
-  - if @profile.avatar
-    = image_tag("https://upbeat-sounds.s3.amazonaws.com/#{@profile.avatar.path}", width: "170px")
 
-  %dl.text-center.profile-attrs
-    %dt Username
-    %dd= @profile.username
+  .profile-attrs
+    .col-md-2.col-md-offset-3.avatar
+      - if @profile.avatar
+        = image_tag("https://upbeat-sounds.s3.amazonaws.com/#{@profile.avatar.path}", width: "170px")
 
-    %dt Bio
-    %dd= @profile.bio
+    .col-md-5
+      %dl
+        %dt Username
+        %dd= @profile.username
+
+        %dt Bio
+        %dd= @profile.bio
 
   - if @profile.producer.provider == "soundcloud"
     .soundcloud-tracks
