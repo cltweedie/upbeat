@@ -10,7 +10,10 @@
       = sample_pack.description
 
     .col-md-3.buying-options
-      - if current_page? sample_packs_path
+      - if current_producer.purchased_packs.include? sample_pack
+        %a.btn.btn-success{ href: download_sample_pack_path(sample_pack) }
+          DOWNLOAD
+      - else
         %span.text--right.text--pink.price
           £
           = sample_pack.price
@@ -32,7 +35,3 @@
                   "data-locale" => "auto",
                   "data-value" => "Buy",
                   "data-samplepack" => "#{ sample_pack.id }"
-
-      - else
-        %a.btn.btn-success{ href: download_sample_pack_path(sample_pack) }
-          DOWNLOAD

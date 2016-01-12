@@ -18,6 +18,9 @@ class ChargesController < ApplicationController
       :currency    => 'gbp'
     )
 
+    Purchase.create!(producer_id: current_producer.id,
+                    sample_pack_id: params[:sample_pack])
+
     redirect_to sample_pack_path(params[:sample_pack])
 
   rescue Stripe::CardError => e
