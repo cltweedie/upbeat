@@ -1,0 +1,18 @@
+.container
+  #banner-mysounds
+
+  - if ProducersHelper.producer_is_this_one?(current_producer, params)
+    %a.btn.btn-success.btn-sm#edit-profile-button{ href: edit_producer_profile_path(@profile.producer) }
+      %span.glyphicon.glyphicon-pencil
+      Edit profile
+
+  %h1.text--center
+    %span.text--blue
+      view
+    profile
+  %dl.text-center.profile-attrs
+    %dt Username
+    %dd= @profile.username
+
+    %dt Bio
+    %dd= @profile.bio

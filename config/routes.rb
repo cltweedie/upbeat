@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       get :account
     end
     resources :sounds, only: [ :index ]
+    resource :profile
   end
 
   root 'home#index'

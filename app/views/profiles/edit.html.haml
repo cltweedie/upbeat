@@ -1,0 +1,14 @@
+.container
+  %h1 Editing your profile
+
+  = form_for @profile, url: producer_profile_path(@profile.producer) do |f|
+    .form-group
+      = f.label :username
+      = f.text_field :username, class: "form-control"
+
+    .form-group
+      = f.label :bio
+      = f.text_area :bio, class: "form-control"
+
+    .form-group
+      = f.submit "Save changes", class: "btn btn-primary"

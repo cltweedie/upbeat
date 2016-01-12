@@ -1,6 +1,6 @@
 Feature: Buying a sample pack
 
-  @javascript @wip
+  @javascript
   Scenario: A producer purchases a sample pack
     Given I have an account as a producer
       And I'm signed in
