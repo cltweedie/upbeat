@@ -54,9 +54,10 @@ class SoundsController < ApplicationController
 
   def download
     if current_producer
-      send_file(@sound.file.path, type: "audio/wav") and return
+      redirect_to "https://upbeat-sounds.s3.amazonaws.com/#{@sound.file.path}"
     else
       flash[:alert] = "You must be logged in to do that!"
+      redirect_to sounds_path
     end
   end
 
