@@ -38,7 +38,7 @@
         $('#play_button_#{sound.id}').click(function() {
           soundManager.createSound({
               id: 'sound_#{ sound.id }',
-              url: '#{ sound.file }',
+              url: "https://upbeat-sounds.s3.amazonaws.com/uploads/sound/#{sound.file.path.split('/')[-1]}",
               onfinish: function() {
                 $('#play_button_#{sound.id}').css('background-position', '0 0');
               }

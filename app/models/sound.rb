@@ -12,7 +12,7 @@ class Sound < ActiveRecord::Base
   validates :title, presence: true
   validates :file, presence: true
 
-  after_save :create_waveform_image
+  after_save :create_waveform_image, :upload_to_aws
 
   paginates_per 5
 
@@ -66,5 +66,10 @@ class Sound < ActiveRecord::Base
     uploader = WaveformUploader.new
 
     uploader.store!(File.open("#{self.file.path}.png"))
+  end
+
+  def upload_to_aws
+    uploader = AudioAwsUploader.new
+    uploader.store!(self.file)
   end
 end
