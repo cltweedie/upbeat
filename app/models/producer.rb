@@ -9,10 +9,12 @@ class Producer < ActiveRecord::Base
 
   has_many :sounds
 
+  has_one :profile
+
   has_many :purchases
   has_many :purchased_packs, through: :purchases, source: :sample_pack
 
-  after_create :send_welcome_email
+  after_create :send_welcome_email, :create_profile
 
   def vote(sound: 1, v: "up")
     if ( v == "up") && ( self.voted_down_on? sound )
@@ -44,5 +46,9 @@ class Producer < ActiveRecord::Base
   private
   def send_welcome_email
     Welcome.welcome_email(self).deliver_now
+  end
+
+  def create_profile
+    Profile.create!(producer: self)
   end
 end
