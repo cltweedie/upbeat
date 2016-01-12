@@ -13,7 +13,7 @@
 
   .profile-attrs
     .col-md-2.col-md-offset-3.avatar
-      - if @profile.avatar
+      - if @profile.avatar.present?
         = image_tag("https://upbeat-sounds.s3.amazonaws.com/#{@profile.avatar.path}", width: "170px")
       - else
         = image_tag("avatar.png", width: "170px")
