@@ -8,6 +8,14 @@ class ProfilesController < ApplicationController
     redirect_to producer_profile_path(@profile.producer)
   end
 
+  def show
+    if @profile.producer.provider == "soundcloud"
+      client = Soundcloud.new(:client_id => 'df5cf1ba47848ed2b170135cdb6907b5')
+      @username = @profile.producer.email.split('@')[0]
+      @tracks = client.get("/users/#{@username}/tracks", :limit => 10, :order => 'hotness')
+    end
+  end
+
   private
   def profile_params
     params.require(:profile).permit(:username, :bio)
