@@ -2,13 +2,17 @@
   %h1 Editing your profile
 
   = form_for @profile, url: producer_profile_path(@profile.producer) do |f|
-    .form-group
+    %fieldset.form-group
       = f.label :username
       = f.text_field :username, class: "form-control"
 
-    .form-group
+    %fieldset.form-group
       = f.label :bio
       = f.text_area :bio, class: "form-control"
 
-    .form-group
+    %fieldset.form-group
+      = f.label :avatar
+      = f.file_field :avatar, class: "form-control"
+
+    %fieldset.form-group
       = f.submit "Save changes", class: "btn btn-primary"

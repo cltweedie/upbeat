@@ -13,7 +13,6 @@ Feature: Sellers
     Then I will see a flash notice "Thank you for registering as a seller."
       And I will have an account as a seller
 
-  @wip
   Scenario: A seller uploads a premium sample pack
     Given I have an account as a seller
       And I'm signed in

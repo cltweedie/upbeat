@@ -10,6 +10,9 @@
     %span.text--blue
       view
     profile
+  - if @profile.avatar
+    = image_tag("https://upbeat-sounds.s3.amazonaws.com/#{@profile.avatar.path}", width: "170px")
+
   %dl.text-center.profile-attrs
     %dt Username
     %dd= @profile.username

@@ -32,3 +32,11 @@ end
 Then(/^My profile will be updated$/) do
   expect(@producer.profile.reload.username).to eq "username1"
 end
+
+When(/^I choose a profile image$/) do
+  attach_file(:Avatar, "#{Rails.root}/features/upload-files/avatar.png")
+end
+
+Then(/^My profile will show the new image$/) do
+  expect(page).to have_css "img[src*='avatar.png']"
+end

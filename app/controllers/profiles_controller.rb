@@ -3,7 +3,7 @@ class ProfilesController < ApplicationController
   before_filter :load_profile, only: [ :show, :edit, :update ]
 
   def update
-    Profile.update(@profile, profile_params)
+    Profile.update(@profile.id, profile_params)
     flash[:notice] = "Your profile has been updated."
     redirect_to producer_profile_path(@profile.producer)
   end
@@ -18,7 +18,7 @@ class ProfilesController < ApplicationController
 
   private
   def profile_params
-    params.require(:profile).permit(:username, :bio)
+    params.require(:profile).permit(:username, :bio, :avatar)
   end
 
   def load_profile

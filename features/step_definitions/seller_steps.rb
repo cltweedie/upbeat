@@ -58,4 +58,3 @@ end
 Then(/^I will be taken to the sample pack show page$/) do
   expect(page).to have_content "Sample Pack 1"
 end
-
