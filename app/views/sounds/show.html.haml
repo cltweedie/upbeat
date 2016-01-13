@@ -1,7 +1,7 @@
 .container
   #banner-show
-  %h1 Show Sound
-  = render @sound
+  .col-md-10.col-md-offset-2.sound-show-partial
+    = render @sound
 
 .container
   - if @comments
@@ -25,7 +25,7 @@
 
           %fieldset.form-group
             = f.label :body
-            = f.text_field :body, class: "form-control", id: "new-comment-body"
+            = f.text_area :body, class: "form-control", id: "new-comment-body"
 
           %fieldset.form-group
             = f.submit "Submit", class: "btn btn-primary"

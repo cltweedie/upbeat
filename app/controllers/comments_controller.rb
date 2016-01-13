@@ -3,7 +3,8 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.create!(comment_params)
     @producer_email = @comment.producer.email
-    render json: { comment: @comment, producer_email: @producer_email }
+    @date = @comment.created_at
+    render json: { comment: @comment, producer_email: @producer_email, date: @date }
   end
 
   private

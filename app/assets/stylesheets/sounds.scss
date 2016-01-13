@@ -118,14 +118,25 @@
   margin-top: 100px;
   .panel-default {
     border: none;
+    border-radius: 0;
     .panel-heading {
-      background-color: $main-color;
+      background-color: #424242;
       color: white;
       border: none;
+      border-radius: 0;
     }
     .panel-body {
       background-color: #1C1C1C;
       border: none;
+      border-radius: 0;
     }
   }
+}
+
+.comment-partial {
+  margin-bottom: 30px;
+}
+
+.sound-show-partial {
+  margin-top: 100px;
 }

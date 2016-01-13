@@ -18,6 +18,17 @@ $(function() {
     panelHeading.addClass('panel-heading');
     panelHeading.text(data.producer_email);
 
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1
+    var yyyy = today.getFullYear();
+
+    var date = $('<span>');
+    date.addClass('text--right');
+    date.append(dd + "/" + mm + "/" + yyyy);
+
+    panelHeading.append(date);
+
     var panelBody = $('<div>');
     panelBody.addClass('panel-body');
     panelBody.text(data.comment.body);
