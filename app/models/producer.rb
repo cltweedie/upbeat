@@ -9,6 +9,8 @@ class Producer < ActiveRecord::Base
 
   has_many :sounds
 
+  has_many :comments
+
   has_one :profile
 
   has_many :purchases
