@@ -26,6 +26,7 @@ Then(/^The sound will have a vote$/) do
 end
 
 Then(/^I will be able to see the total votes on the page$/) do
+  sleep 0.1
   within ".voting" do
     expect(page).to have_content "1"
   end

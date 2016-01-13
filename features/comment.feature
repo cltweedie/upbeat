@@ -1,6 +1,6 @@
 Feature: Commenting on a sound
 
-  @wip @javascript
+  @javascript
   Scenario: A producer views their own sounds
     Given I have an account as a producer
       And I'm signed in
