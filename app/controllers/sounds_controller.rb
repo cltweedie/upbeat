@@ -21,6 +21,11 @@ class SoundsController < ApplicationController
     redirect_to sound_path(@sound)
   end
 
+  def show
+    @comments = Comment.where(sound_id: params[:id])
+    @comment = Comment.new
+  end
+
   def index
     @sounds = Sound.load_sounds(params).page(params[:page])
     if params[:producer_id]
