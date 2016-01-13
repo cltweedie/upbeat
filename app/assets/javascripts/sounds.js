@@ -6,6 +6,19 @@ $(function() {
 
   $('#new-comment-button').click(showCommentForm);
 
+  $('#new_comment').submit(function(event) {
+    if ( $('#new-comment-body').val().length < 5 ) {
+      event.preventDefault();
+      var notice = $('<div>');
+      notice.addClass('alert alert-warning');
+      notice.text('Comment body must be at least 5 characters.')
+      $('#new_comment').append(notice);
+      return false;
+    } else {
+      return;
+    }
+  })
+
   $("#new_comment").on("ajax:success", function(e, data, status, xhr) {
     var comment = new Comment(data.producer_email, data.comment.body);
     comment.render();
