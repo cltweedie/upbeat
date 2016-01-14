@@ -60,7 +60,8 @@ class SoundsController < ApplicationController
 
   def download
     if current_producer
-      redirect_to "https://upbeat-sounds.s3.amazonaws.com/uploads/sound/#{@sound.file.path.split('/')[-1]}"
+      data = open(@sound.as3_audio_path)
+      send_data data.read, filename: "#{@sound.title}.wav", type: "audio/wav"
     else
       flash[:alert] = "You must be logged in to do that!"
       redirect_to sounds_path

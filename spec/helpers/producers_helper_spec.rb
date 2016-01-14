@@ -1,15 +1,18 @@
 require 'rails_helper'
 
-# Specs in this file have access to a helper object that includes
-# the ProducersHelper. For example:
-#
-# describe ProducersHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       expect(helper.concat_strings("this","that")).to eq("this that")
-#     end
-#   end
-# end
 RSpec.describe ProducersHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "producer_is_this_one?" do
+    before do
+      @producer = Producer.create!(email: Faker::Internet.email,
+                                  password: "password",
+                                  password_confirmation: "password")
+      @params = {
+        producer_id: @producer.id
+      }
+    end
+
+    it "returns true if the currently logged in producer is the same as the one in the params" do
+      expect(ProducersHelper.producer_is_this_one?(@producer, @params)).to eq true
+    end
+  end
 end

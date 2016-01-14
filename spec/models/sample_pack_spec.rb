@@ -4,7 +4,7 @@ RSpec.describe SamplePack, type: :model do
   describe "associations" do
     before do
       @seller = Seller.create!(email: "email@email.com", password: "password", password_confirmation: "password")
-      @sample_pack = SamplePack.new(title: "sample pack 1")
+      @sample_pack = SamplePack.new(title: "sample pack 1", file: File.open('features/upload-files/samplepack.zip'))
       @seller.sample_packs << @sample_pack
     end
 

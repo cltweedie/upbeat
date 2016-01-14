@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Purchase, type: :model do
   describe "buying a pack as a producer" do
     before do
-      @sample_pack = SamplePack.new(title: "sample pack 1")
+      @sample_pack = SamplePack.new(title: "sample pack 1", price: 4.99, file: File.open('features/upload-files/samplepack.zip'))
       @producer = Producer.create!(email: Faker::Internet.email,
                                     password: "password",
                                     password_confirmation: "password")
@@ -20,7 +20,7 @@ RSpec.describe Purchase, type: :model do
 
   describe "buying a pack as a seller" do
     before do
-      @sample_pack = SamplePack.new(title: "sample pack 1")
+      @sample_pack = SamplePack.new(title: "sample pack 1", price: 4.99, file: File.open('features/upload-files/samplepack.zip'))
       @seller = Seller.create!(email: Faker::Internet.email,
                                     password: "password",
                                     password_confirmation: "password")

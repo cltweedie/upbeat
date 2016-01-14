@@ -52,7 +52,7 @@ RSpec.describe Sound, type: :model do
   describe "validations" do
     context "without a title" do
       before do
-        @sound = Sound.create
+        @sound = Sound.create(File.open("spec/support/test.wav"))
       end
 
       it "does not save" do

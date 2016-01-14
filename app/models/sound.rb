@@ -61,6 +61,14 @@ class Sound < ActiveRecord::Base
     @sounds.order(cached_votes_score: :desc)
   end
 
+  def as3_audio_path
+    "https://upbeat-sounds.s3.amazonaws.com/uploads/sound/#{self.file.path.split('/')[-1]}"
+  end
+
+  def as3_waveform_path
+    "https://upbeat-sounds.s3.amazonaws.com/uploads/waveform/#{self.file.path.split("/")[-1]}.png"
+  end
+
   private
   def create_waveform_image
     Waveform.generate(self.file.path, "#{self.file.path}.png", force: true, background_color: "#0d0d0d")
