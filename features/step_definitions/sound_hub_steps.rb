@@ -53,3 +53,24 @@ end
 Then(/^I will be taken to the sound show page$/) do
   expect(page).to have_content "Sound 1"
 end
+
+When(/^I choose to delete my sound$/) do
+  find("#delete_sound_#{@sound.id}").click
+end
+
+Then(/^I will be shown a modal asking "(.*?)"$/) do |message|
+  expect(page).to have_content message
+end
+
+When(/^I choose to confirm$/) do
+  click_on "Confirm Delete"
+end
+
+Then(/^The sound should be deleted$/) do
+  sleep 0.1
+  expect(Sound.all.length).to eq 0
+end
+
+Then(/^I will no longer see it on the page$/) do
+  expect(page).not_to have_content @sound.title
+end
