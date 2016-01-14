@@ -8,6 +8,12 @@ function createSeller(producer_id) {
     type: 'PUT',
     success: function(result) {
       console.log("seller created");
+      var notice = $('<div>');
+      notice.addClass('alert alert-success');
+      notice.text('Thank you for registering as a seller.')
+
+      $('#alert-container').append(notice);
+      $('#seller-register').hide();
     }
   });
 }

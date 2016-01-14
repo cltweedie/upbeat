@@ -18,6 +18,7 @@ class SoundsController < ApplicationController
     @sound.producer = current_producer
     @sound.create_tags(params[:tags])
     @sound.save
+    flash[:notice] = "Sound successfully uploaded."
     redirect_to sound_path(@sound)
   end
 
@@ -59,7 +60,7 @@ class SoundsController < ApplicationController
 
   def download
     if current_producer
-      redirect_to "https://upbeat-sounds.s3.amazonaws.com/#{@sound.file.path[11..-1]}"
+      redirect_to "https://upbeat-sounds.s3.amazonaws.com/uploads/sound/#{@sound.file.path.split('/')[-1]}"
     else
       flash[:alert] = "You must be logged in to do that!"
       redirect_to sounds_path

@@ -20,3 +20,36 @@ end
 Then(/^I will be able to see my sounds$/) do
   expect(page).to have_content @sound.title
 end
+
+Given(/^I'm currently on the my sounds page$/) do
+  visit producer_sounds_path(@producer)
+end
+
+When(/^I choose to add a new sound$/) do
+  click_on "New sound"
+end
+
+Then(/^I will be taken to the new sound page$/) do
+  expect(current_path).to eq new_sound_path
+end
+
+When(/^I fill in the new sound form with valid details$/) do
+  fill_in "Title", with: "Sound 1"
+end
+
+When(/^choose an audio file to upload$/) do
+  attach_file(:File, "#{Rails.root}/features/upload-files/sound.wav")
+end
+
+When(/^I submit the new sound form$/) do
+  click_on "Upload Sound"
+end
+
+Then(/^The sound will be created$/) do
+  expect(Sound.all.length).to eq 1
+  expect(Sound.all.first.title).to eq "Sound 1"
+end
+
+Then(/^I will be taken to the sound show page$/) do
+  expect(page).to have_content "Sound 1"
+end
