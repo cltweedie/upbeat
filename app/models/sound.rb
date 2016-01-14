@@ -74,8 +74,8 @@ class Sound < ActiveRecord::Base
   private
   def create_waveform_image
     Waveform.generate(self.file.path, "#{self.file.path}.png", force: true, background_color: "#0d0d0d")
-    uploader = WaveformUploader.new
 
+    uploader = WaveformUploader.new
     uploader.store!(File.open("#{self.file.path}.png"))
   end
 

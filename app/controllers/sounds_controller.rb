@@ -17,9 +17,13 @@ class SoundsController < ApplicationController
     @sound = Sound.new(sound_params)
     @sound.producer = current_producer
     @sound.create_tags(params[:tags])
-    @sound.save
-    flash[:notice] = "Sound successfully uploaded."
-    redirect_to sound_path(@sound)
+    if @sound.save
+      flash[:notice] = "Sound successfully uploaded."
+      redirect_to sound_path(@sound)
+    else
+      flash[:alert] = "Something went wrong. Please try again."
+      redirect_to new_sound_path
+    end
   end
 
   def show
