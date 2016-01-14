@@ -1,9 +1,9 @@
-.container
+%main.container
   #banner-show
   .col-md-10.col-md-offset-2.sound-show-partial
     = render @sound
 
-.container
+%section.container
   - if @comments
     #comments
       - @comments.each do |comment|

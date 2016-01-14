@@ -1,4 +1,4 @@
-.sound-partial.col-md-12
+%section.sound-partial.col-md-12
   %a{ href: "#{ sound_path(sound) }" }
     %h2
       = sound.title
@@ -25,6 +25,9 @@
         = link_to sound.category.name, sounds_path(category: sound.category.name), class: "text--blue"
     %a.downloadbutton{ href: download_sound_path(sound) }
       %span.glyphicon.glyphicon-download
+
+    %p
+      Comments
 
   - unless sound.tags.empty?
     %p.col-md-8.tags
