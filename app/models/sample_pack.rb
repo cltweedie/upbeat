@@ -8,4 +8,8 @@ class SamplePack < ActiveRecord::Base
   mount_uploader :file, SamplePackUploader
   mount_uploader :cover_image, SamplePackImageUploader
 
+  validates :title, presence: true
+  validates :price, presence: true
+  validates :file, presence: true
+
 end

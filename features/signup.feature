@@ -8,5 +8,3 @@ Feature: Signing up
       And I sign up
     Then a producer will be created
     And I will be taken to the homepage
-    # commented out as not set up on heroku
-    # And I will receive a welcome email

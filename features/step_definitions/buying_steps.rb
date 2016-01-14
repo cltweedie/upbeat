@@ -1,6 +1,6 @@
 Given(/^a sample pack exists$/) do
   @seller = Seller.create!(email: "seller@email.com", password: "password", password_confirmation: "password")
-  @sample_pack = SamplePack.new(title: "Tech house", price: 4.99)
+  @sample_pack = SamplePack.new(title: "Tech house", price: 4.99, file: File.open('features/upload-files/samplepack.zip'))
   @sample_pack.seller = @seller
   @sample_pack.save!
 end

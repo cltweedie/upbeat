@@ -1,7 +1,7 @@
 Feature: Commenting on a sound
 
   @javascript
-  Scenario: A producer views their own sounds
+  Scenario: A producer comments on a sound
     Given I have an account as a producer
       And I'm signed in
       And I have uploaded a sound
