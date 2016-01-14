@@ -1,14 +1,40 @@
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
+$(function() {
+  // click event to show the comment form
+  $('#new-comment-button').click(showCommentForm);
+
+  // check the comment is long enough when submitted
+  $('#new_comment').submit(function(event) { checkCommentIsValid(event) })
+
+  // render the new comment on the DOM
+  $("#new_comment").on("ajax:success", function(e, data, status, xhr) {
+    var comment = new Comment(data.producer_email, data.comment.body);
+    comment.render();
+    hideCommentForm();
+  });
+});
 
 function showCommentForm() {
   $('#new-comment-button').hide();
+  $("#new-comment-body").val('');
   $('#new-comment-form').fadeIn('fast');
 }
 
 function hideCommentForm() {
   $('#new-comment-form').hide();
   $('#new-comment-button').fadeIn('fast');
+}
+
+function checkCommentIsValid(event) {
+  if ( $('#new-comment-body').val().length < 5 ) {
+    event.preventDefault();
+    var notice = $('<div>');
+    notice.addClass('alert alert-warning');
+    notice.text('Comment body must be at least 5 characters.')
+    $('#new_comment').append(notice);
+    return false;
+  } else {
+    return;
+  }
 }
 
 function Comment(producer, body) {

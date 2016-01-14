@@ -56,14 +56,12 @@
     $(function() {
       $('#upvote_#{ sound.id }').click(function() {
         $.post("#{ vote_sound_path(sound, v: "up") }", function(data) {
-          console.log("Upvote successful");
           $("#votes_for_sound_#{sound.id}").text(data)
         });
       });
 
       $('#downvote_#{ sound.id }').click(function() {
         $.post("#{ vote_sound_path(sound, v: "down") }", function(data) {
-          console.log("Downvote successful");
           $("#votes_for_sound_#{sound.id}").text(data)
         });
       });
