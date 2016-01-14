@@ -71,7 +71,7 @@
           .col-md-2.sound-admin-links
             %p.delete-sound{ id: "delete_sound_#{sound.id}", "data-toggle" => "modal", "data-target" => "#confirm-delete", onclick: "saveSoundId(#{sound.id})", "title" => "Delete sound" }
               %span.glyphicon.glyphicon-remove
-            %a{ href: edit_sound_path(sound), "title" => "Edit sound" }
+            %a{ href: edit_sound_path(sound), "title" => "Edit sound", id: "edit_sound_#{sound.id}" }
               %span.glyphicon.glyphicon-edit
           .col-md-10
             = render sound

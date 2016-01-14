@@ -22,7 +22,7 @@ Feature: My sounds
       And I will be taken to the sound show page
       And I will see a flash notice "Sound successfully uploaded."
 
-  @wip @javascript
+  @javascript
   Scenario: A producer deletes a sound
     Given I have an account as a producer
       And I'm signed in
@@ -33,3 +33,15 @@ Feature: My sounds
     When I choose to confirm
     Then The sound should be deleted
       And I will no longer see it on the page
+
+  @wip
+  Scenario: A producer edits a sound
+    Given I have an account as a producer
+      And I'm signed in
+      And I have uploaded a sound
+      And I'm currently on the my sounds page
+    When I choose to edit my sound
+    Then I will be taken to the sound edit page
+    When I change the title of the sound
+      And submit the edit form
+    Then the sound will be edited

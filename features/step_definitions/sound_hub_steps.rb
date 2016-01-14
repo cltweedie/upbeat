@@ -1,6 +1,8 @@
 Given(/^I have uploaded a sound$/) do
   @sound = Sound.new(title: "Sound")
   @sound.file = File.open("spec/support/test.wav")
+  @sound.instrument = Instrument.create!(name: "Drums")
+  @sound.category = Category.create!(name: "Loops")
   @sound.producer = @producer
   @sound.save!
 end
@@ -73,4 +75,24 @@ end
 
 Then(/^I will no longer see it on the page$/) do
   expect(page).not_to have_content @sound.title
+end
+
+When(/^I choose to edit my sound$/) do
+  find("#edit_sound_#{@sound.id}").click
+end
+
+Then(/^I will be taken to the sound edit page$/) do
+  expect(current_path).to eq edit_sound_path(@sound)
+end
+
+When(/^I change the title of the sound$/) do
+  fill_in "Title", with: "New sound title"
+end
+
+When(/^submit the edit form$/) do
+  click_on "Update Sound"
+end
+
+Then(/^the sound will be edited$/) do
+  expect(@sound.reload.title).to eq "New sound title"
 end
