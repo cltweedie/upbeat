@@ -1,6 +1,6 @@
 Feature: Signing in
 
-  Scenario: A visitor registers as a producer
+  Scenario: A visitor signs in as a producer
     Given I have an account as a producer
       And I'm on the homepage
     When I choose to sign in

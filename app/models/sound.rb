@@ -62,11 +62,13 @@ class Sound < ActiveRecord::Base
   end
 
   def as3_audio_path
-    "https://upbeat-sounds.s3.amazonaws.com/uploads/sound/#{self.file.path.split('/')[-1]}"
+    filename = self.file.path.split('/')[-1]
+    "https://upbeat-sounds.s3.amazonaws.com/uploads/sound/#{filename}"
   end
 
   def as3_waveform_path
-    "https://upbeat-sounds.s3.amazonaws.com/uploads/waveform/#{self.file.path.split("/")[-1]}.png"
+    filename = self.file.path.split('/')[-1]
+    "https://upbeat-sounds.s3.amazonaws.com/uploads/waveform/#{filename}.png"
   end
 
   private
