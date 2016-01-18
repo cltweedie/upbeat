@@ -6,7 +6,7 @@
 
 I made this app over a *two-week iteration*; at the end of a three-month, intensive web development course at [We Got Coders](http://wegotcoders.com).
 
-The app is designed for musicians and music producers to share samples they have made (drum loops, hits, riffs etc). The audio samples (in WAV format) are uploaded and stored on amazon S3, as is a waveform respresentation of the sound that is rendered after the sound has been uploaded.
+The app is designed for musicians and music producers to share samples they have made (drum loops, hits, riffs etc). The audio samples (in WAV format) are uploaded and stored on amazon S3, as is a waveform representation of the sound that is rendered after the sound has been uploaded.
 
 Key Gems: Devise / OmniAuth / Carrierwave / Waveform / SoundManager2 / Bootstrap-sass
 
